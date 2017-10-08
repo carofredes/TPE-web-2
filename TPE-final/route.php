@@ -20,12 +20,14 @@
         $action = $urlData[configApp::$ACTION];
         if(array_key_exists($action, configApp::$ACTIONS)){
             $params = $urlData[configApp::$PARAMS];
-            $metodo = configApp::$ACTIONS[$action];
+            $actionWithController = explode('#', configApp::$ACTIONS[$action]);
+            $controller =  new $actionWithController[0]();
+            $metodo = $actionWithController[1];
             if(isset($params) &&  $params != null){
-                echo $metodo($params);
+                echo $controller->$metodo($params);
             }
             else{
-                echo $metodo();
+                echo $controller->$metodo();
             }
         }
     }
