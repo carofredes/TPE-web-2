@@ -68,7 +68,7 @@ function showRingtones(data, textStatus, jqXHR) {
 	$("#container").html(data);
 }
 
-/*
+
 function downloadImgs(){ 
 	let droppedElems = document.querySelectorAll('#drop-box > img');
 	let link = document.createElement('a');
@@ -82,7 +82,7 @@ function downloadImgs(){
 	})
 	document.body.removeChild(link);
 }
-*/
+
 
 function getData(){
 	event.preventDefault();
