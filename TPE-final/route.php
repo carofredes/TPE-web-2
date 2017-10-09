@@ -8,7 +8,6 @@
     include_once 'index.php';
     include_once 'ringtones.php';
     include_once 'themes.php';
-    include_once 'wallpapers.php';
     include_once 'controller/homeController.php';
     include_once 'controller/wallpapersController.php';
 

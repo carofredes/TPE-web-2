@@ -13,6 +13,7 @@ class wallpapersController {
 
   public function wallpapers(){
     $wallpapers = $this->model->getWallpapers();
+    print_r($wallpapers);
     $this->view->mostrarWallpapers($wallpapers);
   }
 }

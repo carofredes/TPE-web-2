@@ -8,17 +8,28 @@
             <button id="downloadButton">Download</button>
         </div>
         <div class="col-xs-8 col-sm-8  col-md-9 col-xs-offset-1 col-sm-offset-1 col-md-offset-1  well draggable-img" id="draggableImg">
-            <img class="img" src="img/img1.jpg" alt="wallpaper 1" draggable="true">
-            <img class="img" src="img/img2.jpg" alt="wallpaper 2" draggable="true">
-            <img class="img" src="img/img3.jpg" alt="wallpaper 3" draggable="true">
-            <img class="img" src="img/img4.jpg" alt="wallpaper 4" draggable="true">
-            <img class="img" src="img/img5.jpg" alt="wallpaper 5" draggable="true">
-            <img class="img" src="img/img6.jpg" alt="wallpaper 6" draggable="true">
-            <img class="img" src="img/img7.jpg" alt="wallpaper 7" draggable="true">
-            <img class="img" src="img/img8.jpg" alt="wallpaper 8" draggable="true">
-            <img class="img" src="img/img9.jpg" alt="wallpaper 9" draggable="true">
-            <img class="img" src="img/img10.jpg" alt="wallpaper 10" draggable="true">
+
+            {foreach from=$wallpapers item=wallpaper}
+                {assign var="url" value="media/img/themes/`$wallpaper['titulo']`.jpg"}
+                <img class="img" src={$url} alt="{$wallpaper['titulo']}" draggable="true">
+            {/foreach}
         </div>
     </div>
 </section>
 {include file="footer.tpl"}
+
+<!--
+<ul class="list-group">
+  {foreach from=$tareas item=tarea}
+      <li class="list-group-item">
+        {if $tarea['completado'] }
+          <s>{$tarea['titulo']|truncate:6|upper} : {$tarea['descripcion']}</s>
+        {else}
+            {$tarea['titulo']|truncate:6|upper} : {$tarea['descripcion']}
+        {/if}
+        <a href="borrarTarea/{$tarea['id_tarea']}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+    </li>
+  {/foreach}
+</ul>
+
+-->
