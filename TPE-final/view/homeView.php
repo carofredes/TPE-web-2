@@ -1,8 +1,8 @@
 <?php
 
-class homeView {
-	function __construct() {
-		
+class homeView extends view {
+	function mostrarHome() {
+	    $this->smarty->display('templates/index.tpl');
 	}
 }
 

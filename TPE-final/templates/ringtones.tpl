@@ -1,6 +1,7 @@
 {include file="header.tpl"}
 {include file="navbar.tpl"}
 
+<body>
 <h1>Ringtones</h1>
 <section class="section-ringtones">
 <div class="ringtone-box">  

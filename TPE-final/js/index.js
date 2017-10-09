@@ -1,5 +1,5 @@
 "use strict";
-
+/*
 function showHome(data, textStatus, jqXHR) {
 	$("#container").html(data);
 }
@@ -57,7 +57,7 @@ $(document).ready(function(){
 	})	
 });
 
-/*
+
 
 function downloadImgs(){ 
 	let droppedElems = document.querySelectorAll('#drop-box > img');
