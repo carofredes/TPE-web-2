@@ -1,5 +1,7 @@
 {include file="header.tpl"}
 {include file="navbar.tpl"}
+<body>
+    
 <h1>Themes</h1>
 <section class="section-themes">
     <div class="row" id="themesContainer">

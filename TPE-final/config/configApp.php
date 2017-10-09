@@ -6,8 +6,8 @@ class configApp {
 	public static $ACTIONS = [
 		''=> 'homeController#home',
 		'home'=> 'homeController#home',
-		'ringtones' => 'homeController#ringtones',
-		'themes' => 'homeController#themes',
+		'ringtones' => 'ringtonesController#ringtones',
+		'themes' => 'themesController#themes',
 		'wallpapers' => 'wallpapersController#wallpapers'
 	];
 }
