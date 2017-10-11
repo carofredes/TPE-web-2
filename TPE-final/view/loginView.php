@@ -1,5 +1,5 @@
 <?php
-class LoginView extends View
+class loginView extends View
 {
   function mostrarLogin($error = ''){
     $this->smarty->assign('error', $error);
