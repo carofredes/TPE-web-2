@@ -8,7 +8,8 @@ class configApp {
 		'home'=> 'homeController#home',
 		'ringtones' => 'ringtonesController#ringtones',
 		'themes' => 'themesController#themes',
-		'wallpapers' => 'wallpapersController#wallpapers'
+		'wallpapers' => 'wallpapersController#wallpapers',
+		'image' => 'imageDetailsController#imageDetails'
 	];
 }
 

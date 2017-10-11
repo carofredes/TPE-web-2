@@ -1,6 +1,6 @@
 <?php
     define('ACTION', 0);
-    define('VALOR1', 1);
+    define('PARAMS', 1);
 
     include_once 'config/configApp.php';
     include_once 'model/model.php';
@@ -9,11 +9,12 @@
     include_once 'controller/wallpapersController.php';
     include_once 'controller/ringtonesController.php';
     include_once 'controller/themesController.php';
+    include_once 'controller/imageDetailsController.php';
 
     function parseURL($url) {
         $urlExploded = explode('/', $url);
         $arrayReturn[configApp::$ACTION] = $urlExploded[ACTION];
-        $arrayReturn[configApp::$PARAMS] = isset($urlExploded[VALOR1]) ? array_slice($urlExploded,1) : null;
+        $arrayReturn[configApp::$PARAMS] = isset($urlExploded[PARAMS]) ? array_slice($urlExploded,1) : null;
         return $arrayReturn;
     }
 
