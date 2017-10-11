@@ -13,6 +13,7 @@ class themesController {
 
   public function themes(){
     $themes = $this->model->getThemes();
+    print_r($themes);
     $this->view->mostrarThemes($themes);
   }
 }
