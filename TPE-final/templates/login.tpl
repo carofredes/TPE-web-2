@@ -3,8 +3,8 @@
       <div class="col-md-6 col-md-offset-3">
         <form action="verificarUsuario" method="post">
           <div class="form-group">
-            <label for="usuario">Usuario</label>
-            <input type="text" class="form-control" id="usuario" name="usuario" placeholder="roberto.petrusa" required>
+            <label for="nickName">Usuario</label>
+            <input type="text" class="form-control" id="nickName" name="nickName" placeholder="roberto.petrusa" required>
           </div>
           <div class="form-group">
             <label for="password">Password</label>

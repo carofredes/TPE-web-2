@@ -1,28 +1,31 @@
 <?php
-include_once('model/LoginModel.php');
-include_once('view/LoginView.php');
+include_once('model/loginModel.php');
+include_once('view/loginView.php');
 
 class LoginController extends Controller
 {
 
   function __construct()
   {
-    $this->view = new LoginView();
-    $this->model = new LoginModel();
+    $this->view = new loginView();
+    $this->model = new loginModel();
   }
 
   public function index()
   {
     $this->view->mostrarLogin();
+    print_r(password_hash('rarepepe', PASSWORD_DEFAULT));
   }
 
   public function verify()
   {
-      $userName = $_POST['usuario'];
+      $userName = $_POST['nickName'];
       $password = $_POST['password'];
 
       if(!empty($userName) && !empty($password)){
         $user = $this->model->getUser($userName);
+        print_r(password_verify($password, $user[0]['password']));
+
         if((!empty($user)) && password_verify($password, $user[0]['password'])) {
             session_start();
             $_SESSION['USER'] = $userName;
