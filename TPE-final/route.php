@@ -5,11 +5,13 @@
     include_once 'config/configApp.php';
     include_once 'model/model.php';
     include_once 'view/view.php';
+    include_once 'controller/controller.php';
     include_once 'controller/homeController.php';
     include_once 'controller/wallpapersController.php';
     include_once 'controller/ringtonesController.php';
     include_once 'controller/themesController.php';
     include_once 'controller/imageDetailsController.php';
+    include_once 'controller/loginController.php';
 
     function parseURL($url) {
         $urlExploded = explode('/', $url);

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-10-2017 a las 00:41:39
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 5.6.30
+-- Tiempo de generación: 11-10-2017 a las 21:24:59
+-- Versión del servidor: 10.1.26-MariaDB
+-- Versión de PHP: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -65,6 +65,29 @@ INSERT INTO `imagen` (`id_img`, `titulo`, `id_categoria`) VALUES
 (5, 'other-1', 4),
 (6, 'nature-2', 1);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id_user` int(11) NOT NULL,
+  `nickName` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id_user`, `nickName`, `password`, `name`, `lastname`) VALUES
+(1, 'root', 'root', 'root', 'root'),
+(2, 'admin', 'admin', 'admin', 'admin'),
+(5, 'rarepepe', 'rarepepe', 'pepe', 'elrare');
+
 --
 -- Índices para tablas volcadas
 --
@@ -83,6 +106,12 @@ ALTER TABLE `imagen`
   ADD KEY `id_categoria` (`id_categoria`);
 
 --
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id_user`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -96,6 +125,11 @@ ALTER TABLE `categoria`
 --
 ALTER TABLE `imagen`
   MODIFY `id_img` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Restricciones para tablas volcadas
 --

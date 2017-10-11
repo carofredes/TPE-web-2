@@ -19,44 +19,39 @@ function showRingtones(data, textStatus, jqXHR) {
 $(document).ready(function(){
 	$("#home").on("click", function(){
 		$.ajax({
-			url: "home.html",
+			url: "home",
 			method: "GET",
-			dataType:"HTML",
 			success: showHome
 		})
 	});
 	$("#wallpapers").on("click", function(){
 		$.ajax({
-			url: "wallpapers.html",
+			url: "wallpapers",
 			method: "GET",
-			dataType:"HTML",
 			success: showWallpapers
 		})
 	});
 	$("#themes").on("click", function(){
 		$.ajax({
-			url: "themes.html",
+			url: "/themes",
 			method: "GET",
-			dataType:"HTML",
 			success: showThemes
 		})
 	});
 	$("#ringtones").on("click", function(){
 		$.ajax({
-			url: "ringtones.html",
+			url: "ringtones",
 			method: "GET",
-			dataType:"HTML",
 			success: showRingtones
 		})
 	});	
 	$.ajax({
-		url: "home.html",
+		url: "home",
 		method: "GET",
-		dataType:"HTML",
 		success: showHome
 	})	
-});
-
+});*/
+/*
 
 
 function downloadImgs(){ 

@@ -1,5 +1,4 @@
 {include file="header.tpl"}
-{include file="navbar.tpl"}
 
 <body>
 <h1>Descripcion</h1>
@@ -11,7 +10,7 @@
     <p>decripcio de la imagen</p>
 
 
-    <button>volver</button>
+    <a href="../wallpapers"><span class="glyphicon glyphicon-log-in"></span> Volver</a>
 </div>
  {$id|@print_r}
 
