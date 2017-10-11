@@ -10,8 +10,8 @@
           <li><a id="ringtones" href="ringtones">Ringtones</a></li> 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a id="login-button"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+<!--    <li><a id="login-button"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
+        <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
 </nav>

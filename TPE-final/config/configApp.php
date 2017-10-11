@@ -9,7 +9,10 @@ class configApp {
 		'ringtones' => 'ringtonesController#ringtones',
 		'themes' => 'themesController#themes',
 		'wallpapers' => 'wallpapersController#wallpapers',
-		'image' => 'imageDetailsController#imageDetails'
+		'image' => 'imageDetailsController#imageDetails',
+      	'login' => 'loginController#index',
+      	'verificarUsuario' => 'loginController#verify',
+      	'logout' => 'loginController#destroy'
 	];
 }
 
