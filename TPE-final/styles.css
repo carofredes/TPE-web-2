@@ -7,8 +7,6 @@ h1 {
     margin: 25px;
 } 
 
-
-
 a:hover {
     text-decoration: none;
 }
@@ -96,8 +94,8 @@ th {
 /* WALLPAPERS */
 .section-wallpapers .drop-box-container {
     border: 5px solid #4CAF50;
-    background-image: url("img/dropyourimghere.jpg");
-    background-size: 185px 130px;
+    background-image: url("media/img/enconstruccion.jpg");
+    background-size: 250px 150px;
     background-repeat: repeat-y;
     border-radius: 10px;
 }

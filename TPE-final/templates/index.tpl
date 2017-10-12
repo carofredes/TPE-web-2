@@ -19,7 +19,7 @@
 </div>
 <div class="col-md-4 well">
   <div class="thumbnail">
-          <img class="categorie-img" src="media/simg/music.jpg" alt="ringtones">
+          <img class="categorie-img" src="media/img/music.jpg" alt="ringtones">
           <div class="caption">
               <p><span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span> Ringtones </p>
           </div>
