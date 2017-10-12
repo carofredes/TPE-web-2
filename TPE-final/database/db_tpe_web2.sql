@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2017 a las 02:16:15
+-- Tiempo de generación: 12-10-2017 a las 16:17:07
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -58,7 +58,7 @@ CREATE TABLE `imagen` (
 --
 
 INSERT INTO `imagen` (`id_img`, `titulo`, `id_categoria`) VALUES
-(1, 'nature-1', 1),
+(1, 'nature-5', 3),
 (2, 'space-1', 2),
 (3, 'space-2', 2),
 (4, 'cute-1', 3),
@@ -125,7 +125,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id_img` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_img` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
