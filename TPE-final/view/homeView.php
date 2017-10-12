@@ -1,8 +1,7 @@
 <?php
 
 class homeView extends view {
-	function mostrarHome($admin) {
-		$this->smarty->assign('admin', $admin);
+	function mostrarHome() {
 		$this->smarty->display('templates/index.tpl');
 	}
 }

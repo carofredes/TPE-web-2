@@ -17,4 +17,5 @@
         </form>
       </div>
     </div>
+    <a href="./home">Volver</a>
 {include file="footer.tpl"}

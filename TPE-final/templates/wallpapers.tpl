@@ -1,6 +1,9 @@
 {include file="header.tpl"}
 {include file="navbar.tpl"}
 <h1>Wallpapers</h1>
+{if $admin}
+    <a href="agregarTarea">Agregar Wallpaper</a>
+{/if}
 <section class="section-wallpapers">
     <div class="row">
         <div class="col-xs-3 col-sm-3 col-md-2 well drop-box-container" id="drop-box-container">

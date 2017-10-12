@@ -2,12 +2,11 @@
 include_once('model/themesModel.php');
 include_once('view/themesView.php');
 
-class themesController {
-  private $view;
-  private $model;
+class themesController extends Controller{
 
   function __construct(){
-    $this->view = new themesView();
+    parent::__construct();
+    $this->view = new themesView($this->admin);
     $this->model = new themesModel();
   }
 

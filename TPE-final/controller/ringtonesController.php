@@ -2,12 +2,11 @@
 include_once('model/ringtonesModel.php');
 include_once('view/ringtonesView.php');
 
-class ringtonesController {
-  private $view;
-  private $model;
+class ringtonesController extends Controller{
 
   function __construct(){
-    $this->view = new ringtonesView();
+    parent::__construct();
+    $this->view = new ringtonesView($this->admin);
     $this->model = new ringtonesModel();
   }
 

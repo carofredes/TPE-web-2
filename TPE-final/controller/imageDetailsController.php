@@ -2,12 +2,11 @@
 include_once('view/imageDetailsView.php');
 include_once('model/imageDetailsModel.php');
 
-class imageDetailsController {
-  private $view;
-  private $model;
+class imageDetailsController extends Controller{
 
   function __construct(){
-    $this->view = new imageDetailsView();
+    parent::__construct();
+    $this->view = new imageDetailsView($this->admin);
     $this->model = new imageDetailsModel();
   }
 

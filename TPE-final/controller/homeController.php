@@ -2,20 +2,15 @@
 
 include_once('view/homeView.php');
 
-class homeController {
-  private $view;
+class homeController extends Controller {
 
   function __construct(){
-    $this->view = new homeView();
+  	parent::__construct();
+    $this->view = new homeView($this->admin);
   }
 
   public function home(){
-  	session_start();
-  	$admin = false;
-  	if(isset($_SESSION['USER']) && ($_SESSION['USER'] == 'admin')) {
-  		$admin = true;
-    }
-    $this->view->mostrarHome($admin);
+    $this->view->mostrarHome();
   }
 }
 ?>

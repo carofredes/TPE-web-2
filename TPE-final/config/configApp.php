@@ -10,6 +10,8 @@ class configApp {
 		'themes' => 'themesController#themes',
 		'wallpapers' => 'wallpapersController#wallpapers',
 		'image' => 'imageDetailsController#imageDetails',
+		'guardarWallpaper'=> 'wallpapersController#store',
+        'borrarWallpaper' => 'wallpapersController#destroy',
       	'login' => 'loginController#index',
       	'verificarUsuario' => 'loginController#verify',
       	'logout' => 'loginController#destroy'

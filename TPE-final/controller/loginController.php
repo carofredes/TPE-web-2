@@ -2,12 +2,11 @@
 include_once('model/loginModel.php');
 include_once('view/loginView.php');
 
-class LoginController extends Controller
-{
+class LoginController extends Controller {
 
-  function __construct()
-  {
-    $this->view = new loginView();
+  function __construct(){
+    parent::__construct();
+    $this->view = new loginView($this->admin);
     $this->model = new loginModel();
   }
 
@@ -41,7 +40,7 @@ class LoginController extends Controller
   {
     session_start();
     session_destroy();
-    header('Location: '.LOGIN);
+    header('Location: '.HOME);
   }
 }
 
