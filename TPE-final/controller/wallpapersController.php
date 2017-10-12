@@ -37,7 +37,7 @@ class wallpapersController extends Controller{
     $categoria = $_POST['categoriaedit'];
     if(isset($_POST['tituloedit']) && !empty($_POST['tituloedit'])){
       $this->model->guardarWallpaperExistente($id_img, $titulo, $categoria);
-      //header('Location: '.WALLPAPERS);
+      header('Location: '.WALLPAPERS);
     }
   }
 }
