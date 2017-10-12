@@ -12,7 +12,8 @@ class configApp {
 
 		'wallpapers' => 'wallpapersController#wallpapers',
 		'guardarWallpaper'=> 'wallpapersController#store',
-        'borrarWallpaper' => 'wallpapersController#destroy',		
+        'borrarWallpaper' => 'wallpapersController#destroy',
+        'editarWallpaper' => 'wallpapersController#edit',		
         'image' => 'imageDetailsController#imageDetails',
 
       	'login' => 'loginController#index',

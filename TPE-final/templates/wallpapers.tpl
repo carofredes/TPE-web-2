@@ -9,9 +9,36 @@
         </div>
         <div class="col-xs-8 col-sm-8  col-md-9 col-xs-offset-1 col-sm-offset-1 col-md-offset-1  well" >
             {foreach from=$wallpapers item=wallpaper}
+              <div>
                 {assign var="urlImg" value="media/img/themes/`$wallpaper['titulo']`.jpg"}
-                {assign var="url" value="image/`$wallpaper['id_img']`"}
-                <a href={$url}><img class="img" src={$urlImg} alt="{$wallpaper['titulo']}" id="{$wallpaper['id_img']}"/></a>
+                {assign var="id_img" value="`$wallpaper['id_img']`"}
+                <a href="image/{$id_img}"><img class="img" src={$urlImg} alt="{$wallpaper['titulo']}" id="{$id_img}"/></a>
+
+                {if $admin}
+                  <a href="borrarWallpaper/{$id_img}"><span class="glyphicon glyphicon-trash"></span></a>
+
+                  <a href="#"><span class="glyphicon glyphicon-edit"></span></a>
+                   <form action="editarWallpaper" method="post">
+                      <input type="text" class="form-control hidden" id="id_img" name="id_imgedit"  value="{$id_img}" placeholder="id_img del wallpaper">
+                      <div class="form-group">
+                        <label for="tituloedit">Titulo</label>
+                        <input type="text" class="form-control" id="tituloedit" name="tituloedit"  value="{$wallpaper['titulo']}" placeholder="Titulo del wallpaper">
+                      </div>
+                      <div class="form-group">
+                        <select name="categoriaedit" id="categoriaedit">
+                            {foreach from=$categories item=categorie}
+                                {if ({$categorie['id_categoria']} == {$wallpaper['id_categoria']})}
+                                  <option value="{$categorie['id_categoria']}" selected="true">{$categorie['nombre_categoria']}</option>
+                                {else}
+                                  <option value="{$categorie['id_categoria']}">{$categorie['nombre_categoria']}</option>
+                                {/if}
+                            {/foreach}
+                        </select>
+                      </div>
+                      <button type="submit" class="btn btn-default">Guardar</button>
+                    </form>
+                {/if}
+                </div>
             {/foreach}
         </div>
     </div>

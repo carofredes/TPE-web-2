@@ -4,7 +4,7 @@
         <form action="verificarUsuario" method="post">
           <div class="form-group">
             <label for="nickName">Usuario</label>
-            <input type="text" class="form-control" id="nickName" name="nickName" placeholder="roberto.petrusa" required>
+            <input type="text" class="form-control" id="nickName" name="nickName" placeholder="Usuario" required>
           </div>
           <div class="form-group">
             <label for="password">Password</label>

@@ -19,8 +19,14 @@ class wallpapersModel extends model {
     $sentencia->execute([$titulo, $id_categoria]);
   }
 
+  function guardarWallpaperExistente($idimg, $titu, $idcategoria){
+    $sentencia = $this->db->prepare('update imagen set titulo= ?, id_categoria= ? where id_img=?)');
+    print_r($sentencia->execute([$titu,$idcategoria,$idimg]));
+    $sentencia->execute([$titu,$idcategoria,$idimg]);
+  }
+
   function borrarWallpaper($id_imagen){
-    $sentencia = $this->db->prepare( "delete from imagen where id=?");
+    $sentencia = $this->db->prepare( "delete from imagen where id_img=?");
     $sentencia->execute([$id_imagen]);
   }
 }
