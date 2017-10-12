@@ -12,23 +12,16 @@ class wallpapersController extends Controller{
 
   public function wallpapers(){
     $wallpapers = $this->model->getWallpapers();
-    $this->view->mostrarWallpapers($wallpapers);
+    $categories = $this->model->getCategories();
+    $this->view->mostrarWallpapers($wallpapers, $categories);
   }
 
   public function store() {
     $titulo = $_POST['titulo'];
-    $categoria = $_POST['taskOption'];
+    $categoria = $_POST['categoria'];
     if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
-      if($this->tienePalabrasProhibidas($titulo)){
-        $this->view->errorCrear("El titulo tiene palabras prohibidas", $titulo, $descripcion, $completada);
-      }
-      else{
-        $this->model->guardarTarea($titulo, $descripcion, $completada);
-        header('Location: '.HOME);
-      }
-    }
-    else{
-      $this->view->errorCrear("El campo titulo es requerido", $titulo, $descripcion, $completada);
+      $this->model->guardarWallpaper($titulo, $categoria);
+      header('Location: '.HOME);
     }
   }
 

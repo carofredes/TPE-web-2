@@ -10,7 +10,7 @@ class view
   function __construct($admin)
   {
     $this->smarty = new Smarty();
-    $this->smarty->assign('titulo', 'Not only cats');
+    $this->smarty->assign('tituloSitio', 'Not only cats');
     $this->smarty->assign('admin', $admin);
 
   }

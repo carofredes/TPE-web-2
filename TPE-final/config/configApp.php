@@ -6,12 +6,15 @@ class configApp {
 	public static $ACTIONS = [
 		''=> 'homeController#home',
 		'home'=> 'homeController#home',
+		
 		'ringtones' => 'ringtonesController#ringtones',
 		'themes' => 'themesController#themes',
+
 		'wallpapers' => 'wallpapersController#wallpapers',
-		'image' => 'imageDetailsController#imageDetails',
 		'guardarWallpaper'=> 'wallpapersController#store',
-        'borrarWallpaper' => 'wallpapersController#destroy',
+        'borrarWallpaper' => 'wallpapersController#destroy',		
+        'image' => 'imageDetailsController#imageDetails',
+
       	'login' => 'loginController#index',
       	'verificarUsuario' => 'loginController#verify',
       	'logout' => 'loginController#destroy'

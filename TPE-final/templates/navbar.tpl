@@ -7,12 +7,11 @@
           <li><a id="home" href="home">Home</a></li>
           <li><a id="wallpapers" href="wallpapers">Wallpapers</a></li>
           <li><a id="themes" href="themes">Themes</a></li>
-          <li><a id="ringtones" href="ringtones">Ringtones</a></li>
-          
+          <li><a id="ringtones" href="ringtones">Ringtones</a></li>          
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {if $admin}
-          <li><a id="login-button"><span class="glyphicon glyphicon-user"></span>Admin</a></li>
+          <li><a id="login-button"><span class="glyphicon glyphicon-user"></span> Admin</a></li>
         {/if}
         <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <li><a href="logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
