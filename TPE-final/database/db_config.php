@@ -6,5 +6,7 @@ define('DB_USER','root');
 //pass
 define('DB_PASSWORD','');
 //host
-define('DB_HOST',"localhost");
+define('DB_HOST','localhost');
+//db file
+define('DB_FILE','db_tpe_web2.sql');
  ?>
