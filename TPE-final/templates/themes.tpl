@@ -5,18 +5,11 @@
 <section class="section-themes">
     <div class="row" id="themesContainer">
         <ul class="list-group col-md-2 categories" id="listCategories">
+            {foreach from=$categories item=categorie}
             <li class="list-group-item categorie-item">
-                <a href="#nature">Nature images</a>
+                <a href="#">{$categorie['nombre_categoria']} images</a>
             </li>
-            <li class="list-group-item categorie-item">
-                <a href="#space">Space images</a>
-            </li>
-            <li class="list-group-item categorie-item">
-                <a href="#cute">Cute images</a>
-            </li>
-            <li class="list-group-item categorie-item">
-                <a href="#others">Other images</a>
-            </li>
+            {/foreach}
         </ul>
         <div class="col-md-10">
             {assign var="title" value=""}
@@ -31,7 +24,7 @@
                 {/if}
             {/foreach}
         </div> 
-        {if !$admin}
+        {if $admin}
             <div class="row">
               <div class="col-md-6 col-md-offset-3">
                 <form action="guardarThemes" method="post">
@@ -43,7 +36,7 @@
                 </form>
               </div>
             </div>
-            {/if}     
+        {/if}     
     </div>
 </section>
 {include file="footer.tpl"}
