@@ -12,7 +12,8 @@ class themesController extends Controller{
 
   public function themes(){
     $themes = $this->model->getThemes();
-    $this->view->mostrarThemes($themes);
+    $categories = $this->model->getCategories();
+    $this->view->mostrarThemes($themes,$categories);
   }
 
   public function store() {
