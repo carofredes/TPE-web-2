@@ -10,7 +10,12 @@ class homeController {
   }
 
   public function home(){
-    $this->view->mostrarHome();
+  	session_start();
+  	$admin = false;
+  	if(isset($_SESSION['USER']) && ($_SESSION['USER'] == 'admin')) {
+  		$admin = true;
+    }
+    $this->view->mostrarHome($admin);
   }
 }
 ?>

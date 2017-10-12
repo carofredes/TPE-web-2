@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2017 a las 21:24:59
--- Versión del servidor: 10.1.26-MariaDB
--- Versión de PHP: 7.1.8
+-- Tiempo de generación: 12-10-2017 a las 02:16:15
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -74,19 +74,20 @@ INSERT INTO `imagen` (`id_img`, `titulo`, `id_categoria`) VALUES
 CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
   `nickName` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `lastname` varchar(50) NOT NULL
+  `lastname` varchar(50) NOT NULL,
+  `permissions` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id_user`, `nickName`, `password`, `name`, `lastname`) VALUES
-(1, 'root', 'root', 'root', 'root'),
-(2, 'admin', 'admin', 'admin', 'admin'),
-(5, 'rarepepe', 'rarepepe', 'pepe', 'elrare');
+INSERT INTO `users` (`id_user`, `nickName`, `password`, `name`, `lastname`, `permissions`) VALUES
+(1, 'root', '$2y$10$LwWc9oR7O3wG/VFG57.0s.4YfXz56GUlmCecmj66U/a2pQjytn.Ce', 'root', 'root', ''),
+(2, 'admin', '$2y$10$eIg384TcHJ2BTDZg4y37V.EGVIjQFLpilhniTftVFmKj/s4CAzNam', 'admin', 'admin', ''),
+(5, 'rarepepe', '$2y$10$oTAH34TOLUi6QSUwKuUwUePmJq/WOTdQCks2LX8P/L9VjSEr0Q8tq', 'pepe', 'elrare', '');
 
 --
 -- Índices para tablas volcadas

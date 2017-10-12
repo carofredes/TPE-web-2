@@ -14,7 +14,6 @@ class LoginController extends Controller
   public function index()
   {
     $this->view->mostrarLogin();
-    print_r(password_hash('rarepepe', PASSWORD_DEFAULT));
   }
 
   public function verify()
