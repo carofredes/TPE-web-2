@@ -30,7 +30,20 @@
                     {assign var="title" value="`$theme['nombre_categoria']`"}
                 {/if}
             {/foreach}
-        </div>      
+        </div> 
+        {if !$admin}
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <form action="guardarThemes" method="post">
+                  <div class="form-group">
+                    <label for="titulo">Titulo</label>
+                    <input type="text" class="form-control" id="titulo" name="titulo"  value="" placeholder="Titulo del Theme">
+                  </div>
+                  <button type="submit" class="btn btn-default">Crear</button>
+                </form>
+              </div>
+            </div>
+            {/if}     
     </div>
 </section>
 {include file="footer.tpl"}

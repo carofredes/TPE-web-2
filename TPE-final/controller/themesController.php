@@ -14,6 +14,31 @@ class themesController extends Controller{
     $themes = $this->model->getThemes();
     $this->view->mostrarThemes($themes);
   }
+
+  public function store() {
+    $titulo = $_POST['titulo'];
+    if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
+      $this->model->guardarThemes($titulo);
+      header('Location: '.THEMES);
+    }
+  }
+
+  public function destroy($params){
+    $id_img= $params[0];
+    $this->model->borrarThemes($id_img);
+    header('Location: '.THEMES);
+  }
+
+  public function edit(){
+    $id_img = $_POST['id_imgedit'];
+    $titulo = $_POST['tituloedit'];
+    $categoria = $_POST['categoriaedit'];
+    if(isset($_POST['tituloedit']) && !empty($_POST['tituloedit'])){
+      $this->model->guardarWallpaperExistente($id_img, $titulo, $categoria);
+      //header('Location: '.WALLPAPERS);
+    }
+  }
+
 }
  
 ?>

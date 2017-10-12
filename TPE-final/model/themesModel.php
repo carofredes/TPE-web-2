@@ -7,5 +7,22 @@ class themesModel extends model {
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
+
+  function guardarThemes($titulo){
+    $sentencia = $this->db->prepare('INSERT INTO categoria(nombre_categoria)  VALUES (?)');
+    $sentencia->execute([$titulo]);
+  }
+
+  function borrarThemes($id_theme){
+    $sentencia = $this->db->prepare( "delete from categoria where id_categoria=?");
+    $sentencia->execute([$id_theme]);
+  }
+
+  function editarThemes($id_theme, $titulo){
+    $sentencia = $this->db->prepare("update categoria set titulo=? where id_img=?");
+    $sentencia->execute([$titulo,$id_theme]);
+  }
+
+
 }
 ?>

@@ -9,6 +9,9 @@ class configApp {
 		
 		'ringtones' => 'ringtonesController#ringtones',
 		'themes' => 'themesController#themes',
+		'guardarThemes'=> 'themesController#store',
+		'borrarThemes'=> 'themesController#destroy',
+		'editarThemes'=> 'themesControler#edit',
 
 		'wallpapers' => 'wallpapersController#wallpapers',
 		'guardarWallpaper'=> 'wallpapersController#store',
@@ -19,6 +22,8 @@ class configApp {
       	'login' => 'loginController#index',
       	'verificarUsuario' => 'loginController#verify',
       	'logout' => 'loginController#destroy'
+
+
 	];
 }
 
