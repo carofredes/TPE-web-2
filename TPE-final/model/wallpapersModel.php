@@ -28,5 +28,11 @@ class wallpapersModel extends model {
     $sentencia = $this->db->prepare( "delete from imagen where id_img=?");
     $sentencia->execute([$id_imagen]);
   }
+
+  function getImg($url_img){
+    $sentencia = $this->db->prepare( "select * from imagen where id_img = ? limit 1");
+    $sentencia->execute([$url_img]);
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
 }
 ?>

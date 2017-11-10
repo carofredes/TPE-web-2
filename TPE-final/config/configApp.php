@@ -9,6 +9,7 @@ class configApp {
 		
 		'ringtones' => 'ringtonesController#ringtones',
 		'themes' => 'themesController#themes',
+		'themeImages' => 'themesController#themeImages',
 		'guardarThemes'=> 'themesController#store',
 		'borrarThemes'=> 'themesController#destroy',
 		'editarThemes'=> 'themesControler#edit',
@@ -17,7 +18,7 @@ class configApp {
 		'guardarWallpaper'=> 'wallpapersController#store',
         'borrarWallpaper' => 'wallpapersController#destroy',
         'editarWallpaper' => 'wallpapersController#edit',		
-        'image' => 'imageDetailsController#imageDetails',
+        'wallpaper' => 'wallpapersController#imageDetails',
 
       	'login' => 'loginController#index',
       	'verificarUsuario' => 'loginController#verify',

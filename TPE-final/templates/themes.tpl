@@ -7,23 +7,13 @@
         <ul class="list-group col-md-2 categories" id="listCategories">
             {foreach from=$categories item=categorie}
             <li class="list-group-item categorie-item">
-                <a href="#">{$categorie['nombre_categoria']} images</a>
+                {assign var="idCat" value="`$categorie['id_categoria']`"}
+                <button onclick="actualizarContenido('{$idCat}')">{$categorie['nombre_categoria']} images</button>
             </li>
             {/foreach}
         </ul>
-        <div class="col-md-10">
-            {assign var="title" value=""}
-            {foreach from=$themes item=theme}
-                {if $theme['nombre_categoria'] != $title }
-                    {assign var="title" value="`$theme['nombre_categoria']`"}
-                    <h3>{$title} Themes <a class="downloadButton" id="{$title}">Download</a></h3>
-                    <img src="media/img/themes/{$theme['titulo']}.jpg" alt="{$theme['titulo']}" draggable="true" class="img">
-                {else}                
-                    <img src="media/img/themes/{$theme['titulo']}.jpg" alt="{$theme['titulo']}" draggable="true" class="img">
-                    {assign var="title" value="`$theme['nombre_categoria']`"}
-                {/if}
-            {/foreach}
-        </div> 
+        <div id="theme-result-partial"></div>
+        
         {if $admin}
             <div class="row">
               <div class="col-md-6 col-md-offset-3">

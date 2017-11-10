@@ -36,9 +36,17 @@ class themesController extends Controller{
     $categoria = $_POST['categoriaedit'];
     if(isset($_POST['tituloedit']) && !empty($_POST['tituloedit'])){
       $this->model->guardarWallpaperExistente($id_img, $titulo, $categoria);
-      //header('Location: '.WALLPAPERS);
+      header('Location: '.THEMES);
     }
   }
+  
+  public function themeImages($params){
+    $id_cat= $params[0];
+    $themesImages = $this->model->getThemesImages($id_cat);
+    $categorieName = $this->model->getCategorieName($id_cat);
+    $this->view->mostrarDetalleImg($themesImages,$categorieName);
+  }
+  
 
 }
  

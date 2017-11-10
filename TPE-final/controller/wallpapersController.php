@@ -1,12 +1,16 @@
 <?php
 include_once('model/wallpapersModel.php');
 include_once('view/wallpapersView.php');
+include_once('view/imageDetailsView.php');
+
 
 class wallpapersController extends Controller{
-
+  protected $viewDetails;
+  
   function __construct(){
     parent::__construct();
     $this->view = new wallpapersView($this->admin);
+    $this->viewDetails = new imageDetailsView($this->admin);
     $this->model = new wallpapersModel();
   }
 
@@ -39,6 +43,13 @@ class wallpapersController extends Controller{
       $this->model->guardarWallpaperExistente($id_img, $titulo, $categoria);
       header('Location: '.WALLPAPERS);
     }
+  }
+
+  public function imageDetails($idImg) {
+    $imagen = $this->model->getImg($idImg[0]);
+    $image = $imagen[0];
+    $this->viewDetails->mostrarDetalleImg($image);
+
   }
 }
  
