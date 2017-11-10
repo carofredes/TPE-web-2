@@ -6,7 +6,7 @@ class themesController extends Controller{
 
   function __construct(){
     parent::__construct();
-    $this->view = new themesView($this->admin);
+    $this->view = new themesView($this->admin, $this->userLoggedin);
     $this->model = new themesModel();
   }
 

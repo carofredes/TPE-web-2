@@ -6,7 +6,7 @@ class ringtonesController extends Controller{
 
   function __construct(){
     parent::__construct();
-    $this->view = new ringtonesView($this->admin);
+    $this->view = new ringtonesView($this->admin, $this->userLoggedin);
     $this->model = new ringtonesModel();
   }
 

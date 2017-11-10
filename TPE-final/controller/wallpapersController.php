@@ -9,8 +9,8 @@ class wallpapersController extends Controller{
   
   function __construct(){
     parent::__construct();
-    $this->view = new wallpapersView($this->admin);
-    $this->viewDetails = new imageDetailsView($this->admin);
+    $this->view = new wallpapersView($this->admin, $this->userLoggedin);
+    $this->viewDetails = new imageDetailsView($this->admin, $this->userLoggedin);
     $this->model = new wallpapersModel();
   }
 

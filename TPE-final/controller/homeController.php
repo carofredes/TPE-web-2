@@ -6,7 +6,7 @@ class homeController extends Controller {
 
   function __construct(){
   	parent::__construct();
-    $this->view = new homeView($this->admin);
+    $this->view = new homeView($this->admin, $this->userLoggedin);
   }
 
   public function home(){

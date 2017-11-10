@@ -9,12 +9,17 @@ class Controller {
   protected $view;
   protected $model;
   protected $admin;
+  protected $userLoggedin;
 
 	function __construct() {
 		session_start();
 		$this->admin = false;
+		$this->userLoggedin = false;
 		if(isset($_SESSION['USER']) && ($_SESSION['USER'] == 'admin')) {
 			$this->admin = true;
+		}
+		if(isset($_SESSION['USER'])) {
+			$this->userLoggedin = true;
 		}
 	}
 }

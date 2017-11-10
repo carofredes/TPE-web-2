@@ -22,6 +22,7 @@ class configApp {
 
       	'login' => 'loginController#index',
       	'verificarUsuario' => 'loginController#verify',
+      	'agregarUsuario' => 'loginController#add',
       	'logout' => 'loginController#destroy'
 
 
