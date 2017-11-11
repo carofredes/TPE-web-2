@@ -86,7 +86,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id_user`, `nickName`, `password`, `name`, `lastname`, `permissions`) VALUES
 (1, 'root', '$2y$10$LwWc9oR7O3wG/VFG57.0s.4YfXz56GUlmCecmj66U/a2pQjytn.Ce', 'root', 'root', ''),
-(2, 'admin', '$2y$10$eIg384TcHJ2BTDZg4y37V.EGVIjQFLpilhniTftVFmKj/s4CAzNam', 'admin', 'admin', '')
+(2, 'admin', '$2y$10$eIg384TcHJ2BTDZg4y37V.EGVIjQFLpilhniTftVFmKj/s4CAzNam', 'admin', 'admin', '');
 --
 -- Índices para tablas volcadas
 --

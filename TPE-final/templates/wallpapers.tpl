@@ -3,16 +3,12 @@
 <h1>Wallpapers</h1>
 <section class="section-wallpapers">
     <div class="row">
-        <div class="col-xs-3 col-sm-3 col-md-2 well drop-box-container" id="drop-box-container">
-            <div id="drop-box" class="drop-box"></div>
-            <button id="downloadButton">Download</button>
-        </div>
         <div class="col-xs-8 col-sm-8  col-md-9 col-xs-offset-1 col-sm-offset-1 col-md-offset-1  well" >
             {foreach from=$wallpapers item=wallpaper}
-              <div>
+              <div class="wallpaper-img-container">
                 {assign var="urlImg" value="media/img/themes/`$wallpaper['titulo']`.jpg"}
                 {assign var="id_img" value="`$wallpaper['id_img']`"}
-                <a href="image/{$id_img}"><img class="img" src={$urlImg} alt="{$wallpaper['titulo']}" id="{$id_img}"/></a>
+                <a href="wallpaper/{$id_img}"><img class="img" src={$urlImg} alt="{$wallpaper['titulo']}" id="{$id_img}"/></a>
 
                 {if $admin}
                   <a href="borrarWallpaper/{$id_img}"><span class="glyphicon glyphicon-trash"></span></a>
@@ -65,3 +61,8 @@
 {/if}
 
 {include file="footer.tpl"}
+
+<!--div class="col-xs-3 col-sm-3 col-md-2 well drop-box-container" id="drop-box-container">
+    <div id="drop-box" class="drop-box"></div>
+    <button id="downloadButton">Download</button>
+</div-->

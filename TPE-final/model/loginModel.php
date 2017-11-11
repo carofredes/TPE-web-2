@@ -8,5 +8,10 @@ class loginModel extends Model
     
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
+
+  function createUser($userName, $password) {
+  	$sentencia = $this->db->prepare('INSERT INTO users(nickName,password) VALUES(?,?)');
+    $sentencia->execute([$userName, $password]);
+  }
 }
 ?>

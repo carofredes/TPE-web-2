@@ -10,7 +10,6 @@
     include_once 'controller/wallpapersController.php';
     include_once 'controller/ringtonesController.php';
     include_once 'controller/themesController.php';
-    include_once 'controller/imageDetailsController.php';
     include_once 'controller/loginController.php';
 
     function parseURL($url) {

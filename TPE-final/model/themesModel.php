@@ -8,9 +8,8 @@ class themesModel extends model {
   }
 
   function getCategories(){    
-    $sentencia = $this->db->prepare("select * from categoria");
+    $sentencia = $this->db->prepare("select * from categoria order by nombre_categoria");
     $sentencia->execute();
-    //print_r($sentencia->fetchAll(PDO::FETCH_ASSOC));
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
@@ -29,6 +28,17 @@ class themesModel extends model {
     $sentencia->execute([$titulo,$id_theme]);
   }
 
+  function getThemesImages($id_categoria){
+    $sentencia = $this->db->prepare("select * from imagen where id_categoria=?");
+    $sentencia->execute([$id_categoria]);
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
 
+  function getCategorieName($id_categoria){
+    $sentencia = $this->db->prepare("select * from categoria where id_categoria=? limit 1");
+    $sentencia->execute([$id_categoria]);
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
+  
 }
 ?>

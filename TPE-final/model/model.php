@@ -6,14 +6,13 @@ class model {
 
   function __construct() {
     try {
-        $this->db = new PDO('mysql:host='.DB_HOST.';'.
-        'dbname='.DB_NAME.';charset=utf8',
-        DB_USER, DB_PASSWORD);
+        $this->db = new PDO('mysql:host='.DB_HOST.';'.'dbname='.DB_NAME.';charset=utf8',DB_USER, DB_PASSWORD);
       } catch (PDOException $e) {
         $this->buildDatabasefromFile(DB_NAME,DB_FILE);
       }
   }
 
+  
    public function buildDatabasefromFile(){
       try {
         $this->db = new PDO('mysql:host='.DB_HOST , DB_USER, DB_PASSWORD);

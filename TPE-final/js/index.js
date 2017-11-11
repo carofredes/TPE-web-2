@@ -1,4 +1,19 @@
 "use strict";
+
+function actualizarContenido(id){
+	console.log("actualizas");
+	$.ajax({
+			url: "./themeImages/"+id,
+			method: "GET",
+			success: showHome
+		})
+}
+
+function showHome(result) {
+	console.log("result");
+	$("#theme-result-partial").html(result);
+}
+
 /*
 function showHome(data, textStatus, jqXHR) {
 	$("#container").html(data);
