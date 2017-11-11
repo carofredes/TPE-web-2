@@ -39,6 +39,7 @@ class LoginController extends Controller {
   public function add(){
     $userName = $_POST['nickName'];
     $password = $_POST['password'];
+
     $hashpassword = password_hash($password,PASSWORD_DEFAULT);
     if(!empty($userName) && !empty($hashpassword)){
       $user = $this->model->createUser($userName, $hashpassword);
