@@ -1,17 +1,16 @@
 "use strict";
 
 function actualizarContenido(id){
-	console.log("actualizas");
 	$.ajax({
-			url: "./themeImages/"+id,
+			url: "./categorieResults/"+id,
 			method: "GET",
-			success: showHome
+			success: showSelectedCategorieResults
 		})
 }
 
-function showHome(result) {
-	console.log("result");
-	$("#theme-result-partial").html(result);
+function showSelectedCategorieResults(result) {
+	$(".all-wallpapers-container").addClass("hide");
+	$("#categories-result-partial").html(result);
 }
 
 /*

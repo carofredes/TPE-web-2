@@ -8,17 +8,16 @@ class configApp {
 		'home'=> 'homeController#home',
 		
 		'ringtones' => 'ringtonesController#ringtones',
-		'themes' => 'themesController#themes',
-		'themeImages' => 'themesController#themeImages',
-		'guardarThemes'=> 'themesController#store',
-		'borrarThemes'=> 'themesController#destroy',
-		'editarThemes'=> 'themesControler#edit',
 
+		'categorieResults' => 'wallpapersController#showResults',
 		'wallpapers' => 'wallpapersController#wallpapers',
 		'guardarWallpaper'=> 'wallpapersController#store',
         'borrarWallpaper' => 'wallpapersController#destroy',
         'editarWallpaper' => 'wallpapersController#edit',		
         'wallpaper' => 'wallpapersController#imageDetails',
+        'guardarCategoria'=> 'wallpapersController#storeCategorie',
+		'borrarCategoria'=> 'wallpapersController#destroyCategorie',
+		'editarCategoria'=> 'wallpapersController#editCategorie',
 
       	'login' => 'loginController#index',
       	'verificarUsuario' => 'loginController#verify',
@@ -30,3 +29,4 @@ class configApp {
 }
 
 ?>
+

@@ -7,40 +7,26 @@ h1 {
     margin: 25px;
 } 
 
-a:hover {
-    text-decoration: none;
+.row {
+    margin: 0;
 }
 
-table {
-    border-collapse: collapse;
+.hide {
+    display: none;
+}
+
+.thumbnail .categorie-img {
+    object-fit: cover;
     width: 100%;
+    height: 360px;
 }
 
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-th {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.section-home .caption p {
+.thumbnail .caption p {
     font-size: 38px;
     text-align: center;
     margin: 0 0 0 0;
     text-decoration-style: none;
 }
-
-.section-home .categorie-img {
-    width: 297px;
-    height: 187px;
-} 
 
 /* RINGTONES */
 .section-ringtones .ringtone-box { 
@@ -49,57 +35,47 @@ th {
     padding: 10px;
 }
 
-/* THEMES */
-.section-themes .themes-container img {
-    display: inline;
-    margin: 10px;
-    height: 155px;
-    width: 240px;
-}
-
-.section-themes .themes-container h3 {
-    border: 2px solid #4CAF50;
-    border-radius: 10px;
-    padding-left: 10px;
-}
-
-.section-themes .categorie-item {
-    background-color: #4CAF50;
-    margin: 1px;
-    padding: 5px 25px;
-}
-
-.section-themes .categorie-item > button {
-    background: none;
-    border: none;
-    color: white;
-}
-
-.section-themes .categorie-item:hover {
-    background-color: #4CA999;
-}
-
-.section-themes .categorie-item a {
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    font-size: 16px;
-}
 
 /* WALLPAPERS */
 .section-wallpapers .wallpaper-img-container {
     float: left;
-    width: 33.3%;
-    margin-top: 15px;
-    margin-bottom: 25px;
+    width: 32%;
+    margin: 15px 5px 25px 5px;
     text-align: center;
 }
 
 .section-wallpapers .wallpaper-img-container .img {
     object-fit: cover;
-    width: 310px;
+    width: 100%;
     height: 200px;
 }
+
+.section-wallpapers .categorie-item > button {
+    background: none;
+    border: none;
+    color: white;
+}
+
+.section-wallpapers .categorie-item {
+    background-color: #4CAF50;
+    margin: 1px;
+    padding: 5px 25px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.section-wallpapers .categorie-item:hover {
+    background-color: #4CA999;
+}
+.section-wallpapers .categorie-item:focus {
+    background-color: #4CA999;
+}
+
+.section-wallpapers .title-categorie {
+    margin-top: 0;
+}
+
+/* LOGIN */
 .login-page {
     position: fixed; 
     top: 0px; 
@@ -142,72 +118,3 @@ th {
 .goback-text a {
     color: darkcyan;
 }
-/*
-
-.section-themes .downloadButton {
-    background-color: #4CAF50;
-    border: none;
-    margin: 5px 0px 5px 0px;
-    color: white;
-    padding: 5px 25px;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-}
-.section-wallpapers .drop-box-container {
-    border: 5px solid #4CAF50;
-    background-image: url("media/img/enconstruccion.jpg");
-    background-size: 250px 150px;
-    background-repeat: repeat-y;
-    border-radius: 10px;
-}
-
-.section-wallpapers .drop-box {
-    height: 467px;
-}
-
-.section-wallpapers .drop-box img {
-   height: 50px;
-}
-
-.section-wallpapers .draggable-img img {
-    width: 200px;
-    height: 150px;
-}
-
-.section-wallpapers #downloadButton {
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    padding: 5px 0px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    width: 100%;
-}
-
-.section-wallpapers #downloadbutton:active {
-    transform: translateY(1px);
-}
-
-.input-table {
-    width: 39%;
-    border: 1px solid gray;
-    padding: 0px;
-}
-.title-form  {
-    background-color: #4CAF50;
-    color: white;
-    padding: 6px;
-    margin-top: 0px;
-}
-
-.input-table form {
-    padding: 12px;
-}
-
-.input-table label {
-    width: 50%;
-}*/

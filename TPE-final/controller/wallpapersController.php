@@ -3,7 +3,6 @@ include_once('model/wallpapersModel.php');
 include_once('view/wallpapersView.php');
 include_once('view/imageDetailsView.php');
 
-
 class wallpapersController extends Controller{
   protected $viewDetails;
   
@@ -49,7 +48,31 @@ class wallpapersController extends Controller{
     $imagen = $this->model->getImg($idImg[0]);
     $image = $imagen[0];
     $this->viewDetails->mostrarDetalleImg($image);
+  }
 
+  public function showResults($params){
+    $id_cat= $params[0];
+    $resultImages = $this->model->getCategorieImages($id_cat);
+    $categorieName = $this->model->getCategorieName($id_cat);
+    $this->view->mostrarDetalleImg($resultImages,$categorieName);
+  }
+
+  public function storeCategorie() {
+    $titulo = $_POST['titulo'];
+    if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
+      $this->model->guardarCategoria($titulo);
+      header('Location: '.WALLPAPERS);
+    }
+  }
+
+  public function destroyCategorie($params){
+    $id_cat= $params[0];
+    $this->model->borrarCategoria($id_cat);
+    header('Location: '.WALLPAPERS);
+  }
+
+  public function editCategorie(){
+    /* todo */
   }
 }
  
