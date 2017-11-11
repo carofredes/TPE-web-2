@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2017 a las 23:22:51
+-- Tiempo de generación: 12-10-2017 a las 02:16:15
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -63,40 +63,7 @@ INSERT INTO `imagen` (`id_img`, `titulo`, `id_categoria`) VALUES
 (3, 'space-2', 2),
 (4, 'cute-1', 3),
 (5, 'other-1', 4),
-(6, 'nature-2', 1),
-(7, 'cute-2', 3);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `imagenes_relacionadas`
---
-
-CREATE TABLE `imagenes_relacionadas` (
-  `id_img_relacionada` int(100) NOT NULL,
-  `nombre_imagen` varchar(100) NOT NULL,
-  `id_img` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `imagenes_relacionadas`
---
-
-INSERT INTO `imagenes_relacionadas` (`id_img_relacionada`, `nombre_imagen`, `id_img`) VALUES
-(1, 'cute-1-baw', 1),
-(1, 'cute-1-sepia', 2),
-(2, 'cute-2-baw', 3),
-(2, 'cute-2-sepia', 4),
-(3, 'nature-1-baw', 5),
-(3, 'nature-1-sepia', 6),
-(4, 'nature-2-sepia', 7),
-(4, 'nature-2-baw', 8),
-(5, 'other-1-baw', 9),
-(5, 'other-1-sepia', 10),
-(6, 'space-1-sepia', 11),
-(6, 'space-1-baw', 12),
-(7, 'space-2-sepia', 13),
-(7, 'space-2-baw', 14);
+(6, 'nature-2', 1);
 
 -- --------------------------------------------------------
 
@@ -120,7 +87,6 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id_user`, `nickName`, `password`, `name`, `lastname`, `permissions`) VALUES
 (1, 'root', '$2y$10$LwWc9oR7O3wG/VFG57.0s.4YfXz56GUlmCecmj66U/a2pQjytn.Ce', 'root', 'root', ''),
 (2, 'admin', '$2y$10$eIg384TcHJ2BTDZg4y37V.EGVIjQFLpilhniTftVFmKj/s4CAzNam', 'admin', 'admin', '');
-
 --
 -- Índices para tablas volcadas
 --
@@ -139,12 +105,6 @@ ALTER TABLE `imagen`
   ADD KEY `id_categoria` (`id_categoria`);
 
 --
--- Indices de la tabla `imagenes_relacionadas`
---
-ALTER TABLE `imagenes_relacionadas`
-  ADD PRIMARY KEY (`id_img`);
-
---
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -158,17 +118,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id_img` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT de la tabla `imagenes_relacionadas`
---
-ALTER TABLE `imagenes_relacionadas`
-  MODIFY `id_img` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_img` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
