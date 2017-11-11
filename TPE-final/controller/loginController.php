@@ -40,8 +40,9 @@ class LoginController extends Controller {
     $userName = $_POST['nickName'];
     $password = $_POST['password'];
 
-    if(!empty($userName) && !empty($password)){
-      $user = $this->model->createUser($userName, $password);   
+    $hashpassword = password_hash($password,PASSWORD_DEFAULT);
+    if(!empty($userName) && !empty($hashpassword)){
+      $user = $this->model->createUser($userName, $hashpassword);
       session_start();
       $_SESSION['USER'] = $userName;
       $_SESSION['LAST_ACTIVITY'] = time();
