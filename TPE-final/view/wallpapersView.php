@@ -7,10 +7,16 @@ class wallpapersView extends view {
 		$this->smarty->display('templates/wallpapers.tpl');
 	}
 
-	function mostrarDetalleImg($images,$categorie){
+	function mostrarWallpapersPorCategoria($images,$categorie){
 		$this->smarty->assign('images', $images);
 		$this->smarty->assign('categorie', $categorie);
 		$this->smarty->display('templates/resultCategories.tpl');
+	}
+
+	function mostrarDetalleImg($image,$relatedImgs){
+		$this->smarty->assign('image', $image);
+		$this->smarty->assign('relatedImgs', $relatedImgs);
+		$this->smarty->display('templates/imageDetails.tpl');
 	}
 }
 

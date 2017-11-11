@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2017 a las 23:22:51
+-- Tiempo de generación: 12-11-2017 a las 00:19:33
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -73,30 +73,30 @@ INSERT INTO `imagen` (`id_img`, `titulo`, `id_categoria`) VALUES
 --
 
 CREATE TABLE `imagenes_relacionadas` (
-  `id_img_relacionada` int(100) NOT NULL,
+  `id_img` int(100) NOT NULL,
   `nombre_imagen` varchar(100) NOT NULL,
-  `id_img` int(100) NOT NULL
+  `id_img_relac` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `imagenes_relacionadas`
 --
 
-INSERT INTO `imagenes_relacionadas` (`id_img_relacionada`, `nombre_imagen`, `id_img`) VALUES
-(1, 'cute-1-baw', 1),
-(1, 'cute-1-sepia', 2),
-(2, 'cute-2-baw', 3),
-(2, 'cute-2-sepia', 4),
-(3, 'nature-1-baw', 5),
-(3, 'nature-1-sepia', 6),
-(4, 'nature-2-sepia', 7),
-(4, 'nature-2-baw', 8),
+INSERT INTO `imagenes_relacionadas` (`id_img`, `nombre_imagen`, `id_img_relac`) VALUES
+(4, 'cute-1-baw', 1),
+(4, 'cute-1-sepia', 2),
+(7, 'cute-2-baw', 3),
+(7, 'cute-2-sepia', 4),
+(1, 'nature-1-baw', 5),
+(1, 'nature-1-sepia', 6),
+(6, 'nature-2-sepia', 7),
+(6, 'nature-2-baw', 8),
 (5, 'other-1-baw', 9),
 (5, 'other-1-sepia', 10),
-(6, 'space-1-sepia', 11),
-(6, 'space-1-baw', 12),
-(7, 'space-2-sepia', 13),
-(7, 'space-2-baw', 14);
+(2, 'space-1-sepia', 11),
+(2, 'space-1-baw', 12),
+(3, 'space-2-sepia', 13),
+(3, 'space-2-baw', 14);
 
 -- --------------------------------------------------------
 
@@ -142,7 +142,8 @@ ALTER TABLE `imagen`
 -- Indices de la tabla `imagenes_relacionadas`
 --
 ALTER TABLE `imagenes_relacionadas`
-  ADD PRIMARY KEY (`id_img`);
+  ADD PRIMARY KEY (`id_img_relac`),
+  ADD KEY `id_img` (`id_img`);
 
 --
 -- Indices de la tabla `users`
@@ -168,7 +169,7 @@ ALTER TABLE `imagen`
 -- AUTO_INCREMENT de la tabla `imagenes_relacionadas`
 --
 ALTER TABLE `imagenes_relacionadas`
-  MODIFY `id_img` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_img_relac` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
@@ -183,6 +184,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `imagen`
   ADD CONSTRAINT `imagen_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`);
+
+--
+-- Filtros para la tabla `imagenes_relacionadas`
+--
+ALTER TABLE `imagenes_relacionadas`
+  ADD CONSTRAINT `imagenes_relacionadas_ibfk_1` FOREIGN KEY (`id_img`) REFERENCES `imagen` (`id_img`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

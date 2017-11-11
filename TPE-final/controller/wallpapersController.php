@@ -1,7 +1,6 @@
 <?php
 include_once('model/wallpapersModel.php');
 include_once('view/wallpapersView.php');
-include_once('view/imageDetailsView.php');
 
 class wallpapersController extends Controller{
   protected $viewDetails;
@@ -9,7 +8,6 @@ class wallpapersController extends Controller{
   function __construct(){
     parent::__construct();
     $this->view = new wallpapersView($this->admin, $this->userLoggedin);
-    $this->viewDetails = new imageDetailsView($this->admin, $this->userLoggedin);
     $this->model = new wallpapersModel();
   }
 
@@ -47,14 +45,15 @@ class wallpapersController extends Controller{
   public function imageDetails($idImg) {
     $imagen = $this->model->getImg($idImg[0]);
     $image = $imagen[0];
-    $this->viewDetails->mostrarDetalleImg($image);
+    $imagenes_relacionadas = $this->model->getRelatedImgs($idImg[0]);
+    $this->view->mostrarDetalleImg($image, $imagenes_relacionadas);
   }
 
   public function showResults($params){
     $id_cat= $params[0];
     $resultImages = $this->model->getCategorieImages($id_cat);
     $categorieName = $this->model->getCategorieName($id_cat);
-    $this->view->mostrarDetalleImg($resultImages,$categorieName);
+    $this->view->mostrarWallpapersPorCategoria($resultImages,$categorieName);
   }
 
   public function storeCategorie() {
