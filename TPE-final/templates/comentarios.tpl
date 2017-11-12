@@ -5,13 +5,14 @@
     {if isset($error) }
       <div class="alert alert-danger" role="alert">{$error}</div>
     {/if}
-    <form action="guardarComentario" method="post">
+    <form action="createcomentario" method="post">
       <div class="form-group">
         <label for="descripcion">Comentario:</label>
         <textarea name="ComentarioText" id="ComentarioText" name="ComentarioText" rows="8" cols="50"></textarea>
       </div>
-      <button id="btnCrearTarea" type="submit" class="btn btn-default">Crear</button>
+      <button id="btnCrearComentario" type="submit" class="btn btn-default">Crear</button>
     </form>
+    <button id="refresh" type="submit" class="btn btn-default">refresh</button>
   </div>
 </div>
 
