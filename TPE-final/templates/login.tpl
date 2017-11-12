@@ -1,4 +1,3 @@
-{include file="header.tpl"}
 <div class="login-page">
     <div class="row">
       <h2 class="title-login-page">Log in!</h2>
@@ -42,4 +41,3 @@
 
     <span class="goback-text"><a href="./home">Go back</a></span>
 </div>    
-{include file="footer.tpl"}

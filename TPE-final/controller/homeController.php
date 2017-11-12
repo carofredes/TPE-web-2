@@ -12,5 +12,9 @@ class homeController extends Controller {
   public function home(){
     $this->view->mostrarHome();
   }
+
+  public function show(){
+    $this->view->mostrarHomeContent();
+  }
 }
 ?>

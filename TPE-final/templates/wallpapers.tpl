@@ -1,4 +1,3 @@
-{include file="header.tpl"} {include file="navbar.tpl"}
 <h1>Wallpapers</h1>
 <section class="section-wallpapers">
     <div class="row">
@@ -76,4 +75,3 @@
     </div>
 </div>
 {/if} 
-{include file="footer.tpl"}

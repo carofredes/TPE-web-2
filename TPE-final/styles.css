@@ -7,6 +7,15 @@ h1 {
     margin: 25px;
 } 
 
+.nav li button {
+    background: no-repeat;
+    color: #9d9d9d;
+    border: none;
+    position: relative;
+    display: block;
+    padding: 15px;
+}
+
 .row {
     margin: 0;
 }

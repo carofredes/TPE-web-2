@@ -1,5 +1,46 @@
 "use strict";
 
+$(document).ready(function(){
+	$("#home").on("click", function(){
+		$.ajax({
+			url: "./home",
+			method: "GET",
+			success: showHome
+		})
+	});
+	$("#wallpapers").on("click", function(){
+		$.ajax({
+			url: "./wallpapers",
+			method: "GET",
+			success: showWallpapers
+		})
+	});
+	$("#ringtones").on("click", function(){
+		$.ajax({
+			url: "./ringtones",
+			method: "GET",
+			success: showRingtones
+		})
+	});
+	$.ajax({
+		url: "./home",
+		method: "GET",
+		success: showHome
+	})
+});
+
+function showHome(result) {
+	$("#container-results").html(result);
+}
+
+function showWallpapers(result) {
+	$("#container-results").html(result);
+}
+
+function showRingtones(result) {
+	$("#container-results").html(result);
+}
+
 function actualizarContenido(id){
 	$.ajax({
 			url: "./categorieResults/"+id,
@@ -14,57 +55,9 @@ function showSelectedCategorieResults(result) {
 }
 
 /*
-function showHome(data, textStatus, jqXHR) {
-	$("#container").html(data);
-}
 
-function showWallpapers(data, textStatus, jqXHR) {
-	$("#container").html(data);
-}
 
-function showThemes(data, textStatus, jqXHR) {
-	$("#container").html(data);
-}
-
-function showRingtones(data, textStatus, jqXHR) {
-	$("#container").html(data);
-}
-
-$(document).ready(function(){
-	$("#home").on("click", function(){
-		$.ajax({
-			url: "home",
-			method: "GET",
-			success: showHome
-		})
-	});
-	$("#wallpapers").on("click", function(){
-		$.ajax({
-			url: "wallpapers",
-			method: "GET",
-			success: showWallpapers
-		})
-	});
-	$("#themes").on("click", function(){
-		$.ajax({
-			url: "/themes",
-			method: "GET",
-			success: showThemes
-		})
-	});
-	$("#ringtones").on("click", function(){
-		$.ajax({
-			url: "ringtones",
-			method: "GET",
-			success: showRingtones
-		})
-	});	
-	$.ajax({
-		url: "home",
-		method: "GET",
-		success: showHome
-	})	
-});*/
+*/
 /*
 
 

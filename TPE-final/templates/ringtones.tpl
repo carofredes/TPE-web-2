@@ -1,7 +1,3 @@
-{include file="header.tpl"}
-{include file="navbar.tpl"}
-
-<body>
 <h1>Ringtones</h1>
 <section class="section-ringtones">
 <div class="ringtone-box">  
@@ -44,5 +40,3 @@
     <a href="media/mp3/mozart_1.mp3" download="mozart_1">Download</a>
 </div>   
 </section>
-
-{include file="footer.tpl"}

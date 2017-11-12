@@ -5,7 +5,7 @@ class configApp {
 	public static $PARAMS = 'params';
 	public static $ACTIONS = [
 		''=> 'homeController#home',
-		'home'=> 'homeController#home',
+		'home'=> 'homeController#show',
 		
 		'ringtones' => 'ringtonesController#ringtones',
 
