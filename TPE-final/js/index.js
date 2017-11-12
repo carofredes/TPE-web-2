@@ -24,16 +24,16 @@ $(document).ready(function(){
     }
 
   function crearComentario() {
-      let tarea ={
-        "usuario": $('#usuario').val(),
-        "texto": $('#texto').val(),
-        "calificacion": $('#calificacion').val()
+      let comentario ={
+        "usuario": "tuvieja",
+        "texto": $('#ComentarioText').val(),
+        "calificacion": "5"
       };
 
       $.ajax({
             method: "POST",
             url: "api/comentarios",
-            data: JSON.stringify(comentarios)
+            data: JSON.stringify(comentario)
           })
         .done(function(data) {
           //let rendered = Mustache.render(templateComentarios , data);

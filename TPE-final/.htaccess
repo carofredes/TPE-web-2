@@ -3,7 +3,7 @@
 	RewriteCond %{REQUEST_FILENAME} -f [OR]
   	RewriteCond %{REQUEST_FILENAME} -l
   	RewriteRule ^[css|img|js].*$ - [L]
-	RewriteRule ^api/(.*)$ api/route.php?resource=$1 [QSA,L]
+	RewriteRule ^api(.*)$ apiroute.php?resource=$1 [QSA,L]
   	RewriteRule ^(.*)$ route.php?action=$1 [QSA,L]
 	
 	# Si el directorio o archivo solicitado no existe entonces se procede a la siguiente Rule

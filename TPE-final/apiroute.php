@@ -3,9 +3,9 @@
 define('RESOURCE', 0);
 define('PARAMS', 1);
 
-include_once 'config/router.php';
-include_once '../model/model.php';
-include_once 'controller/comentarioApiController.php';
+require_once ('api/config/router.php');
+require_once ('model/model.php');
+require_once ('api/controller/comentarioApiController.php');
 
 
 $router = new Router();

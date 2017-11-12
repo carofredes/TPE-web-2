@@ -1,6 +1,6 @@
 <?php
 
-require_once '../model/comentarioModel.php';
+require_once 'model/comentarioModel.php';
 require_once 'api.php';
 /**
  *
