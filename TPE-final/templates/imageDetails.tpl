@@ -1,6 +1,7 @@
-<div class="row">
+
+	<div class="row">
 	<h1>{$image['titulo']}</h1>
-	<img src="../media/img/{$image['titulo']}.jpg">
+	<img src="media/img/{$image['titulo']}.jpg">
 
 	<h3>Imagenes Relacionadas</h3> 
 	<div id="carousel-imgs" class="carousel slide col-md-3" data-ride="carousel">
@@ -17,11 +18,11 @@
 			{foreach from=$relatedImgs item=img name=images}
 				{if $smarty.foreach.images.first}
 				<div class="item active">
-					<img src="../media/img/{$img['nombre_imagen']}.jpg">
+					<img src="media/img/{$img['nombre_imagen']}.jpg">
 				</div>
 				{else}
 				<div class="item">
-					<img src="../media/img/{$img['nombre_imagen']}.jpg">
+					<img src="media/img/{$img['nombre_imagen']}.jpg">
 				</div>
 				{/if}
 			{/foreach}
@@ -40,3 +41,4 @@
  
 
 {include file="comentarios.tpl"}
+
