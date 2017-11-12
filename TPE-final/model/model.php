@@ -1,5 +1,5 @@
 <?php
-include_once("database/db_config.php");
+include_once "database/db_config.php";
 
 class model {
   protected $db;
@@ -11,8 +11,6 @@ class model {
         $this->buildDatabasefromFile(DB_NAME,DB_FILE);
       }
   }
-
-  
    public function buildDatabasefromFile(){
       try {
         $this->db = new PDO('mysql:host='.DB_HOST , DB_USER, DB_PASSWORD);
