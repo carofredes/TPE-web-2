@@ -3,7 +3,6 @@
 	<img src="../media/img/{$image['titulo']}.jpg">
 
 	<h3>Imagenes Relacionadas</h3> 
-
 	<div id="carousel-imgs" class="carousel slide col-md-3" data-ride="carousel">
 		<ol class="carousel-indicators">
 		{foreach from=$relatedImgs item=img name=images}
@@ -38,3 +37,6 @@
 	</div>
 	<a href="../wallpapers"><span class="glyphicon glyphicon-log-in"></span> Volver</a>
 </div>
+ 
+
+{include file="comentarios.tpl"}
