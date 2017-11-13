@@ -75,3 +75,5 @@
     </div>
 </div>
 {/if} 
+
+{include file="comentarios.tpl"}

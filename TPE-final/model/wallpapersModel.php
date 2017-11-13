@@ -24,6 +24,26 @@ class wallpapersModel extends model {
 	$sentencia->execute([$titulo,$id_categoria,$id_img]);
   }
 
+  private function subirImagenes($imagenes,$nombre){
+    $rutas = [];
+    $index = 0;
+    foreach ($imagenes as $imagen) {
+      $destino_final = 'media/img/' . $nombre . $index . '.jpg';
+      move_uploaded_file($imagen, $destino_final);
+      $rutas[]=$destino_final;
+      $index++;
+    }
+    return $rutas;
+  }
+
+  function guardarWallpaperRelated($nombre, $imagen_relacionada, $imagenes){
+  	$rutas = $this->subirImagenes($imagenes,$nombre);
+	$sentencia_imagenes = $this->db->prepare('INSERT INTO imagenes_relacionadas(id_img,url) VALUES(?,?)');
+	foreach ($rutas as $ruta) {
+		$sentencia_imagenes->execute([$imagen_relacionada,$ruta]);
+	}
+  }
+
   function borrarWallpaper($id_imagen){
 	$sentencia = $this->db->prepare( "delete from imagen where id_img=?");
 	$sentencia->execute([$id_imagen]);

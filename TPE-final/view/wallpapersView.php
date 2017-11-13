@@ -18,6 +18,11 @@ class wallpapersView extends view {
 		$this->smarty->assign('relatedImgs', $relatedImgs);
 		$this->smarty->display('templates/imageDetails.tpl');
 	}
+
+	function errorCrear($error,$image,$relatedImgs){
+	    $this->smarty->assign('error', $error);
+	    $this->smarty->display('templates/imageDetails.tpl');
+	}
 }
 
 ?>

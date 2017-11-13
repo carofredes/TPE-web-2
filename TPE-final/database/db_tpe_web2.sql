@@ -3,10 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
-
--- Tiempo de generación: 12-11-2017 a las 01:50:58
--- Versión del servidor: 10.1.26-MariaDB
--- Versión de PHP: 7.1.8
+-- Tiempo de generación: 13-11-2017 a las 03:53:09
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -56,6 +55,13 @@ CREATE TABLE `comentarios` (
   `id_img` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `comentarios`
+--
+
+INSERT INTO `comentarios` (`id_comentario`, `id_user`, `texto`, `calificacion`, `id_img`) VALUES
+(1, 1, 'creado desde la db', 5, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -89,7 +95,7 @@ INSERT INTO `imagen` (`id_img`, `titulo`, `id_categoria`) VALUES
 
 CREATE TABLE `imagenes_relacionadas` (
   `id_img` int(100) NOT NULL,
-  `nombre_imagen` varchar(100) NOT NULL,
+  `url` varchar(100) NOT NULL,
   `id_img_relac` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -97,21 +103,21 @@ CREATE TABLE `imagenes_relacionadas` (
 -- Volcado de datos para la tabla `imagenes_relacionadas`
 --
 
-INSERT INTO `imagenes_relacionadas` (`id_img`, `nombre_imagen`, `id_img_relac`) VALUES
-(4, 'cute-1-baw', 1),
-(4, 'cute-1-sepia', 2),
-(7, 'cute-2-baw', 3),
-(7, 'cute-2-sepia', 4),
-(1, 'nature-1-baw', 5),
-(1, 'nature-1-sepia', 6),
-(6, 'nature-2-sepia', 7),
-(6, 'nature-2-baw', 8),
-(5, 'other-1-baw', 9),
-(5, 'other-1-sepia', 10),
-(2, 'space-1-sepia', 11),
-(2, 'space-1-baw', 12),
-(3, 'space-2-sepia', 13),
-(3, 'space-2-baw', 14);
+INSERT INTO `imagenes_relacionadas` (`id_img`, `url`, `id_img_relac`) VALUES
+(4, 'media/img/cute-1-baw.jpg', 1),
+(4, 'media/img/cute-1-sepia.jpg', 2),
+(7, 'media/img/cute-2-baw.jpg', 3),
+(7, 'media/img/cute-2-sepia.jpg', 4),
+(1, 'media/img/nature-1-baw.jpg', 5),
+(1, 'media/img/nature-1-sepia.jpg', 6),
+(6, 'media/img/nature-2-sepia.jpg', 7),
+(6, 'media/img/nature-2-baw.jpg', 8),
+(5, 'media/img/other-1-baw.jpg', 9),
+(5, 'media/img/other-1-sepia.jpg', 10),
+(2, 'media/img/space-1-sepia.jpg', 11),
+(2, 'media/img/space-1-baw.jpg', 12),
+(3, 'media/img/space-2-sepia.jpg', 13),
+(3, 'media/img/space-2-baw.jpg', 14);
 
 -- --------------------------------------------------------
 
@@ -187,7 +193,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id_comentario` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_comentario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `imagen`
 --
@@ -197,7 +203,7 @@ ALTER TABLE `imagen`
 -- AUTO_INCREMENT de la tabla `imagenes_relacionadas`
 --
 ALTER TABLE `imagenes_relacionadas`
-  MODIFY `id_img_relac` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_img_relac` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
