@@ -18,101 +18,138 @@ class wallpapersController extends Controller{
   }
 
   public function store() {
-    $titulo = $_POST['titulo'];
-    $categoria = $_POST['categoria'];
-    if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
-      $this->model->guardarWallpaper($titulo, $categoria);
-      header('Location: '.HOME);
+    if($this->admin) {
+      $titulo = $_POST['titulo'];
+      $categoria = $_POST['categoria'];
+      if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
+        $this->model->guardarWallpaper($titulo, $categoria);
+        header('Location: '.HOME);
+      }
+    }else {
+      header('Location: '.LOGIN);
     }
   }
 
   private function sonJPG($imagenesTipos){
-      foreach ($imagenesTipos as $tipo) {
-        if($tipo != 'image/jpeg') {
-          return false;
-        }
+    foreach ($imagenesTipos as $tipo) {
+      if($tipo != 'image/jpeg') {
+        return false;
       }
-      return true;
+    }
+    return true;
   }
 
   public function storeRelated() {
-    $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
-    $nombre = $_POST['nombre'];
-    $imagen_relacionada = $_POST['id-imagen-relacionada'];
+    if($this->admin) {
+      $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
+      $nombre = $_POST['nombre'];
+      $imagen_relacionada = $_POST['id-imagen-relacionada'];
 
-    if(isset($_POST['nombre']) && !empty($_POST['nombre'])){
-      if($this->sonJPG($_FILES['imagenes']['type'])) {
-        $this->model->guardarWallpaperRelated($nombre, $imagen_relacionada,$rutaTempImagenes);
-        header('Location: '.HOME);
+      if(isset($_POST['nombre']) && !empty($_POST['nombre'])){
+        if($this->sonJPG($_FILES['imagenes']['type'])) {
+          $this->model->guardarWallpaperRelated($nombre, $imagen_relacionada,$rutaTempImagenes);
+          header('Location: '.HOME);
+        }
+        else{
+          $this->view->errorCrear("Las imagenes tienen que ser JPG.", $nombre,  $imagen_relacionada);
+        }   
       }
       else{
-        $this->view->errorCrear("Las imagenes tienen que ser JPG.", $nombre,  $imagen_relacionada);
-      }   
-    }
-    else{
-      $this->view->errorCrear("El campo nombre es requerido", $nombre,  $imagen_relacionada);
+        $this->view->errorCrear("El campo nombre es requerido", $nombre,  $imagen_relacionada);
+      }
+    }else {
+      header('Location: '.LOGIN);
     }
   }
 
   public function destroy($params){
-    $id_img= $params[0];
-    $this->model->borrarWallpaper($id_img);
-    header('Location: '.HOME);
+    if($this->admin) {
+      if(isset($params[0]) && !empty($params[0])){
+        $id_img= $params[0];
+        $this->model->borrarWallpaper($id_img);
+      }
+      header('Location: '.HOME);
+    }else {
+      header('Location: '.LOGIN);
+    }
   }
 
   public function destroyRelated($params){
-    if(!empty($_POST['images-to-delete'])) {
-      $rutaTempImagenes = [];
-      foreach($_POST['images-to-delete'] as $check) {
-        array_push($rutaTempImagenes, $check);
-      }
-      $this->model->borrarWallpaperRelacionado($rutaTempImagenes);
-    }    
-    header('Location: '.HOME);
+    if($this->admin) {
+      if(!empty($_POST['images-to-delete'])) {
+        $rutaTempImagenes = [];
+        foreach($_POST['images-to-delete'] as $check) {
+          array_push($rutaTempImagenes, $check);
+        }
+        $this->model->borrarWallpaperRelacionado($rutaTempImagenes);
+      }    
+      header('Location: '.HOME);
+    }else {
+      header('Location: '.LOGIN);
+    }
   }
   
 
   public function edit(){
-    $id_img = $_POST['id_imgedit'];
-    $titulo = $_POST['tituloedit'];
-    $categoria = $_POST['categoriaedit'];
-    if(isset($_POST['tituloedit']) && !empty($_POST['tituloedit'])){
-      $this->model->guardarWallpaperExistente($id_img, $titulo, $categoria);
+    if($this->admin) {
+      $id_img = $_POST['id_imgedit'];
+      $titulo = $_POST['tituloedit'];
+      $categoria = $_POST['categoriaedit'];
+      if(isset($_POST['tituloedit']) && !empty($_POST['tituloedit'])){
+        $this->model->guardarWallpaperExistente($id_img, $titulo, $categoria);
+      }
       header('Location: '.HOME);
+    } else {
+      header('Location: '.LOGIN);
     }
   }
 
   public function imageDetails($idImg) {
-    $imagen = $this->model->getImg($idImg[0]);
-    $image = $imagen[0];
-    $imagenes_relacionadas = $this->model->getRelatedImgs($idImg[0]);
-    $this->view->mostrarDetalleImg($image, $imagenes_relacionadas);
+    if(isset($idImg[0]) && !empty($idImg[0])){
+      $imagen = $this->model->getImg($idImg[0]);
+      $image = $imagen[0];
+      $imagenes_relacionadas = $this->model->getRelatedImgs($idImg[0]);
+      $this->view->mostrarDetalleImg($image, $imagenes_relacionadas);
+    }else {
+      header('Location: '.HOME);
+    }
   }
 
   public function showResults($params){
-    $id_cat= $params[0];
-    $resultImages = $this->model->getCategorieImages($id_cat);
-    $categorieName = $this->model->getCategorieName($id_cat);
-    $this->view->mostrarWallpapersPorCategoria($resultImages,$categorieName);
+    if(isset($params[0]) && !empty($params[0])){
+      $id_cat= $params[0];
+      $resultImages = $this->model->getCategorieImages($id_cat);
+      $categorieName = $this->model->getCategorieName($id_cat);
+      $this->view->mostrarWallpapersPorCategoria($resultImages,$categorieName);
+    }else {
+      header('Location: '.HOME);
+    }
   }
 
   public function storeCategorie() {
-    $titulo = $_POST['titulo'];
-    if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
-      $this->model->guardarCategoria($titulo);
-      header('Location: '.WALLPAPERS);
+    if($this->admin) {
+      $titulo = $_POST['titulo'];
+      if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
+        $this->model->guardarCategoria($titulo);
+      }
+      header('Location: '.HOME);
+    } else {
+      header('Location: '.LOGIN);
     }
   }
 
   public function destroyCategorie($params){
-    $id_cat= $params[0];
-    $this->model->borrarCategoria($id_cat);
-    header('Location: '.WALLPAPERS);
+    if($this->admin) {
+      if(!empty($params[0])){
+        $id_cat= $params[0];
+        $this->model->borrarCategoria($id_cat);
+      }
+      header('Location: '.HOME);
+    }else {
+      header('Location: '.LOGIN);
+    }
   }
 
-  public function editCategorie(){
-    /* todo */
-  }
 }
  
 ?>

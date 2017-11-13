@@ -19,7 +19,6 @@ class configApp {
         'wallpaper' => 'wallpapersController#imageDetails',
         'guardarCategoria'=> 'wallpapersController#storeCategorie',
 		'borrarCategoria'=> 'wallpapersController#destroyCategorie',
-		'editarCategoria'=> 'wallpapersController#editCategorie',
 
       	'login' => 'loginController#index',
       	'verificarUsuario' => 'loginController#verify',

@@ -33,6 +33,8 @@ class LoginController extends Controller {
         else{
             $this->view->mostrarLogin('Usuario o Password incorrectos');
         }
+      }else {
+        header('Location: '.LOGIN);
       }
   }
 
@@ -53,8 +55,7 @@ class LoginController extends Controller {
     }
   }
 
-  public function destroy()
-  {
+  public function destroy() {
     session_start();
     session_destroy();
     header('Location: '.HOME);
