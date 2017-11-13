@@ -48,7 +48,6 @@ class comentarioApiController extends Api
     $calificacion = $body->calificacion;
     $id_img = $body->id_img;
     $comentario = $this->model->guardarComentario($usuario, $texto, $calificacion,$id_img);
-    //$comentario['completado'] = $comentario['completado'] ? true : false;
     $response = new stdClass();
     $response->comentarios = [$comentario];
     $response->status = 200;

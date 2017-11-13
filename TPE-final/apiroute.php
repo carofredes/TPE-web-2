@@ -10,8 +10,6 @@ require_once ('api/controller/comentarioApiController.php');
 
 $router = new Router();
 //url, verb, controller, method
-//$router->AddRoute("comentario", "GET", "comentarioApiController", "getComentarios");
-//$router->AddRoute("comentario/:id", "GET", "comentarioApiController", "getComentario");
 $router->AddRoute("comentario/:id", "GET", "comentarioApiController", "getComentarioOfImg");
 
 $router->AddRoute("comentario", "POST", "comentarioApiController", "createComentarios");

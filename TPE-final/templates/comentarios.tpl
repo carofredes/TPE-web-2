@@ -18,6 +18,7 @@
             <option value="5">5</option>
         </select> 
       </div>
+      <div class="g-recaptcha" data-sitekey="6LckYTgUAAAAAKTuAIRmj_wdchbFJkm1WQ2_k4C6"></div>
       <button id="btnCrearComentario" type="submit" class="btn btn-default">Crear</button>
     </form>
     <button id="refresh" type="submit" class="btn btn-default">refresh</button>

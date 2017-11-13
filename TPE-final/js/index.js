@@ -137,9 +137,10 @@ function mostrarDetalleImagenes(id){
 		crearComentario();
 	});
 
-	$('body').on('click', 'a.js-borrar', function() {
+	$('body').on('click', 'a.js-borrar', function(event) {
 		event.preventDefault();
-		let id_comentario = $(this).data('id_comentario');
+		let id_comentario = $(this).data('idcomentario');
+		console.log(id_comentario);
 		borrarComentario(id_comentario);
 	});
 	cargarComentarios(id);
