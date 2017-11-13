@@ -60,6 +60,18 @@ class wallpapersController extends Controller{
     header('Location: '.HOME);
   }
 
+  public function destroyRelated($params){
+    if(!empty($_POST['images-to-delete'])) {
+      $rutaTempImagenes = [];
+      foreach($_POST['images-to-delete'] as $check) {
+        array_push($rutaTempImagenes, $check);
+      }
+      $this->model->borrarWallpaperRelacionado($rutaTempImagenes);
+    }    
+    header('Location: '.HOME);
+  }
+  
+
   public function edit(){
     $id_img = $_POST['id_imgedit'];
     $titulo = $_POST['tituloedit'];
