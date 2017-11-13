@@ -82,8 +82,6 @@ $(document).ready(function() {
 	})
 });
 
-
-
 function actualizarContenido(id) {
 	$.ajax({
 		url: "./categorieResults/" + id,

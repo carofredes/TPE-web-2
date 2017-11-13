@@ -12,6 +12,7 @@ class configApp {
 		'categorieResults' => 'wallpapersController#showResults',
 		'wallpapers' => 'wallpapersController#wallpapers',
 		'guardarWallpaper'=> 'wallpapersController#store',
+		'guardarWallpaperRelacionado'=> 'wallpapersController#storeRelated',
         'borrarWallpaper' => 'wallpapersController#destroy',
         'editarWallpaper' => 'wallpapersController#edit',		
         'wallpaper' => 'wallpapersController#imageDetails',

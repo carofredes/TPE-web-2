@@ -8,7 +8,7 @@
     <div class="wallpaper-img-container">               
         {assign var="urlImg" value="media/img/`$image['titulo']`.jpg"}
         {assign var="id_img" value="`$image['id_img']`"}
-        <a href="wallpaper/{$id_img}">
+        <a onclick="mostrarDetalleImagenes({$id_img})">
         	<img class="img" src={$urlImg} alt="{$image['titulo']}" id="{$id_img}"/>
         </a>
     </div>

@@ -1,7 +1,7 @@
 <?php
 
-require_once 'model/comentarioModel.php';
-require_once 'api.php';
+require_once('model/comentarioModel.php');
+require_once('api.php');
 /**
  *
  */
@@ -18,12 +18,13 @@ class comentarioApiController extends Api
   public function getComentarios($url_params = [])
   {
       $comentarios = $this->model->getComentarios();
+      print_r("estoy en el comentario api con");
       $response = new stdClass();
       $response->comentarios = $comentarios;
       $response->status = 200;
       return $this->json_response($response, 200);
   }
-
+/*
   public function getComentario($url_params = [])
   {
       $id_comentario = $url_params[":id"];
@@ -33,7 +34,7 @@ class comentarioApiController extends Api
       else
         return $this->json_response(false, 404);
   }
-/*
+
   public function getDescripcion($url_params = [])
   {
     $id_comentario = $url_params[":id"];
@@ -43,7 +44,7 @@ class comentarioApiController extends Api
     else
       return $this->json_response(false, 404);
   }
-*/
+
   public function deleteComentarios($url_params = [])
   {
       $id_comentario = $url_params[":id"];
@@ -69,7 +70,7 @@ class comentarioApiController extends Api
     $response->comentarios = [$comentario];
     $response->status = 200;
     return $this->json_response($response, 200);
-  }
+  }*/
 }
 
  ?>

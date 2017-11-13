@@ -22,14 +22,42 @@ class wallpapersController extends Controller{
     $categoria = $_POST['categoria'];
     if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
       $this->model->guardarWallpaper($titulo, $categoria);
-      header('Location: '.WALLPAPERS);
+      header('Location: '.HOME);
+    }
+  }
+
+  private function sonJPG($imagenesTipos){
+      foreach ($imagenesTipos as $tipo) {
+        if($tipo != 'image/jpeg') {
+          return false;
+        }
+      }
+      return true;
+  }
+
+  public function storeRelated() {
+    $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
+    $nombre = $_POST['nombre'];
+    $imagen_relacionada = $_POST['id-imagen-relacionada'];
+
+    if(isset($_POST['nombre']) && !empty($_POST['nombre'])){
+      if($this->sonJPG($_FILES['imagenes']['type'])) {
+        $this->model->guardarWallpaperRelated($nombre, $imagen_relacionada,$rutaTempImagenes);
+        header('Location: '.HOME);
+      }
+      else{
+        $this->view->errorCrear("Las imagenes tienen que ser JPG.", $nombre,  $imagen_relacionada);
+      }   
+    }
+    else{
+      $this->view->errorCrear("El campo nombre es requerido", $nombre,  $imagen_relacionada);
     }
   }
 
   public function destroy($params){
     $id_img= $params[0];
     $this->model->borrarWallpaper($id_img);
-    header('Location: '.WALLPAPERS);
+    header('Location: '.HOME);
   }
 
   public function edit(){
@@ -38,7 +66,7 @@ class wallpapersController extends Controller{
     $categoria = $_POST['categoriaedit'];
     if(isset($_POST['tituloedit']) && !empty($_POST['tituloedit'])){
       $this->model->guardarWallpaperExistente($id_img, $titulo, $categoria);
-      header('Location: '.WALLPAPERS);
+      header('Location: '.HOME);
     }
   }
 
