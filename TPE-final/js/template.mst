@@ -1,12 +1,22 @@
 {{#comentarios}}
-<li id="id_comentario{{id_comentario}}"class="list-group-item">
-  <h6> id_comentario: {{id_comentario}}</h6>
-    <h6>id_user: {{id_user}}</h6>
-    <h6>texto: {{texto}}</h6>
-    <h6>calificacion: {{calificacion}}</h6>
-    <h6>id_img:{{id_img}}</h6>
-    {if $admin}
-    <a class="js-borrar" data-idcomentario="{{id_comentario}}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-    {/if}
-</li>
+<div class="container list-group-item" id="id_comentario{{id_comentario}}">
+	<div class="row">
+		<div class="col-sm-1">
+			<div class="thumbnail">
+				<img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+			</div>
+		</div>
+		<div class="col-sm-5">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<strong>User {{id_user}}</strong> <span class="text-muted">calificacion: {{calificacion}}</span>
+				</div>
+				<div class="panel-body">
+					{{texto}}
+				</div>
+			</div>
+		</div>
+	</div>
+	<a class="js-borrar" data-idcomentario="{{id_comentario}}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+</div>
 {{/comentarios}}

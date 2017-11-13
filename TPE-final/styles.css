@@ -108,6 +108,10 @@ h1 {
     width: 47%;
     margin: 0 auto;
 }
+
+.list-group-item {
+    border: none;
+}
 /* LOGIN */
 .login-page {
     position: fixed; 

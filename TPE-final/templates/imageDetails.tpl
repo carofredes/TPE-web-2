@@ -35,7 +35,7 @@
 		</div>
 	</div>
 </div>
-
+{include file="comentarios.tpl"}
 {if $admin}
 <div class="row well">
     <div class="col-md-6 col-md-offset-3">
