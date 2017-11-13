@@ -1,10 +1,6 @@
 <IfModule mod_rewrite.c>
 	RewriteEngine On
-	RewriteCond %{REQUEST_FILENAME} -f [OR]
-  	RewriteCond %{REQUEST_FILENAME} -l
-  	RewriteRule ^[css|img|js].*$ - [L]
-	RewriteRule ^api(.*)$ apiroute.php?resource=$1 [QSA,L]
-  	RewriteRule ^(.*)$ route.php?action=$1 [QSA,L]
+
 	
 	# Si el directorio o archivo solicitado no existe entonces se procede a la siguiente Rule
 	RewriteCond %{REQUEST_FILENAME} -f [OR]
@@ -19,6 +15,7 @@
 	# Si llegamos a este punto, el acceso no se trata de contenido estatico.
 	# El resto se dirigue al router principal.
 
+	RewriteRule ^api(.*)$ apiroute.php?resource=$1 [QSA,L]
 	RewriteRule ^(.*)$ route.php?action=$1 [QSA,L]
 	# La expesión regular captura todas las peticiones que se hacen
 	# La pretición se remplaza para llamar al archivo route.php
@@ -26,4 +23,5 @@
 	# Los parentesis agregan lo capturado a una variable: $1 por ser la primera.
 	# Con "QSA" no descartamos la cadena capturada.
 	# Con la "L", de coincidir con la expreción regular, esta regla es la ultima.
+
 </IfModule>

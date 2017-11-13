@@ -14,9 +14,9 @@ $router->AddRoute("comentario", "GET", "comentarioApiController", "getComentario
 $router->AddRoute("comentario/:id", "GET", "comentarioApiController", "getComentario");
 //$router->AddRoute("comentario/:id/descripcion", "GET", "comentarioApiController", "getDescripcion");
 
-$router->AddRoute("comentario", "POST", "comentarioApiController", "createcomentario");
+$router->AddRoute("comentario", "POST", "comentarioApiController", "createComentarios");
 
-$router->AddRoute("comentario/:id", "DELETE", "comentarioApiController", "deletecomentario");
+$router->AddRoute("comentario/:id", "DELETE", "comentarioApiController", "deleteComentarios");
 
 
 $route = $_GET['resource'];
