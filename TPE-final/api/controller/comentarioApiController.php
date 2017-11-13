@@ -2,9 +2,7 @@
 
 require_once 'model/comentarioModel.php';
 require_once 'api.php';
-/**
- *
- */
+
 class comentarioApiController extends Api
 {
   protected $model;

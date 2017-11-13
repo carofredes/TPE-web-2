@@ -1,5 +1,6 @@
 <ul id="listaComentarios" class="list-group">
 </ul>
+{if userLoggedin}
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     {if isset($error) }
@@ -24,3 +25,4 @@
     <button id="refresh" type="submit" class="btn btn-default">refresh</button>
   </div>
 </div>
+{/if}
