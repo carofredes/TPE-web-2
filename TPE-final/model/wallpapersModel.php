@@ -49,6 +49,13 @@ class wallpapersModel extends model {
 	$sentencia->execute([$id_imagen]);
   }
 
+  function borrarWallpaperRelacionado($rutaTempImagenes){
+	$sentencia = $this->db->prepare( "delete from imagenes_relacionadas where url=?");
+	foreach ($rutaTempImagenes as $ruta) {
+		$sentencia->execute([$ruta]);
+	}
+  }
+
   function getImg($id_imagen){
 	$sentencia = $this->db->prepare( "select * from imagen where id_img = ? limit 1");
 	$sentencia->execute([$id_imagen]);
