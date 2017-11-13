@@ -1,12 +1,15 @@
 "use strict";
-function cargarComentarios() {
-	$.ajax("api/comentario")
-		.done(function(comentarios) {
-			console.log(comentarios);
-			$('li').remove();
-			//let rendered = templateCroto(comentarios);
-			let rendered = '<li>j3j3</li>';
+let templateComentarios;
+  $.ajax({ url: 'js/template.mst'}).done( template => templateComentarios = template);
 
+function cargarComentarios(id) {
+	$.ajax({
+			method: "GET",
+			url: "api/comentario/"+id,
+		})
+		.done(function(comentarios) {
+			$('li').remove();
+			let rendered = Mustache.render(templateComentarios, comentarios);
 			$('#listaComentarios').append(rendered);
 		})
 		.fail(function() {
@@ -18,8 +21,8 @@ function crearComentario() {
 	let comentario = {
 		"usuario": "1",
 		"texto": $('#ComentarioText').val(),
-		"calificacion": "5",
-		"id_img": '1'
+		"calificacion": $('#select').val(),
+		"id_img": $('#id-imagen-details').val()
 	};
 	$.ajax({
 			method: "POST",
@@ -27,9 +30,7 @@ function crearComentario() {
 			data: JSON.stringify(comentario)
 		})
 		.done(function(data) {
-			//let rendered = Mustache.render(templateComentarios , data);
-			//let rendered = templateCroto(comentarios);
-			let rendered = '<li>j3j3</li>';
+			let rendered = Mustache.render(templateComentarios , data);
 			console.log(data);
 			$('#listaComentarios').append(rendered);
 		})
@@ -53,7 +54,6 @@ function borrarComentario(id_comentario) {
 }
 
 $(document).ready(function() {
-	console.log('hola desde js');
 	$("#home").on("click", function() {
 		$.ajax({
 			url: "./home",
@@ -124,17 +124,12 @@ function mostrarDetalleImagenes(id){
 	$.ajax({
 		url: "./wallpaper/" + id,
 		method: "GET",
-		success: showImageDetails
-	})
-}
-
-function showImageDetails(result) {
-	$("#container-results").html(result);
+	}).done(function(result) {
+			$("#container-results").html(result);
 	
 	$('#refresh').click(function(event) {
 		event.preventDefault();
-		console.log('hola');
-		cargarComentarios();
+		cargarComentarios(id);
 	});
 
 	$('#btnCrearComentario').click(function(event) {
@@ -142,17 +137,24 @@ function showImageDetails(result) {
 		crearComentario();
 	});
 
-	$('body').on('click', 'a.js-borrar', function() {
+	$('body').on('click', 'a.js-borrar', function(event) {
 		event.preventDefault();
-		let id_comentario = $(this).data('id_comentario');
+		let id_comentario = $(this).data('idcomentario');
+		console.log(id_comentario);
 		borrarComentario(id_comentario);
 	});
+	cargarComentarios(id);
+	setInterval(function(){
+    	cargarComentarios(id);
+	}, 2000);
+})
 }
 
+function showImageDetails(result) {
+	
+}
 
 /*
-
-
 function downloadImgs(){ 
 	let droppedElems = document.querySelectorAll('#drop-box > img');
 	let link = document.createElement('a');

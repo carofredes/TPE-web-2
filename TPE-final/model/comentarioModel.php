@@ -6,11 +6,16 @@ class comentarioModel extends model
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
-/*
   function getComentario($id_comentario){
     $sentencia = $this->db->prepare( "select * from comentarios where id_comentario = ?");
     $sentencia->execute([$id_comentario]);
     return $sentencia->fetch(PDO::FETCH_ASSOC);
+  }
+    
+  function getComentarioOfImg($id_img){
+    $sentencia = $this->db->prepare( "select * from comentarios where id_img = ?");
+    $sentencia->execute([$id_img]);
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
   function guardarComentario($usuario, $texto, $calificacion,$id_img){
@@ -23,6 +28,6 @@ class comentarioModel extends model
   function borrarComentario($id_comentario){
     $sentencia = $this->db->prepare( "delete from comentarios where id_comentario=?");
     $sentencia->execute([$id_comentario]);
-  }*/
+  }
 }
 ?>

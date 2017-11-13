@@ -35,6 +35,7 @@
 		</div>
 	</div>
 </div>
+
 {if $admin}
 <div class="row well">
     <div class="col-md-6 col-md-offset-3">
