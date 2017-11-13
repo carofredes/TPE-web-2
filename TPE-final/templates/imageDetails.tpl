@@ -1,8 +1,6 @@
-
-	<div class="row">
+<div class="row">
 	<h1>{$image['titulo']}</h1>
 	<img src="media/img/{$image['titulo']}.jpg">
-
 	<h3>Imagenes Relacionadas</h3> 
 	<div id="carousel-imgs" class="carousel slide col-md-3" data-ride="carousel">
 		<ol class="carousel-indicators">
@@ -36,9 +34,7 @@
 			<span class="sr-only">Next</span>
 		</a>
 	</div>
-	<a href="../wallpapers"><span class="glyphicon glyphicon-log-in"></span> Volver</a>
+	<a href="/"><span class="glyphicon glyphicon-log-in"></span> Volver</a>
 </div>
- 
-
 {include file="comentarios.tpl"}
 

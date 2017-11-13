@@ -12,6 +12,12 @@ class comentarioModel extends model
     $sentencia->execute([$id_comentario]);
     return $sentencia->fetch(PDO::FETCH_ASSOC);
   }
+    
+  function getComentarioOfImg($id_img){
+    $sentencia = $this->db->prepare( "select * from comentarios where id_img = ?");
+    $sentencia->execute([$id_img]);
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
 
   function guardarComentario($usuario, $texto, $calificacion,$id_img){
     $sentencia = $this->db->prepare('INSERT INTO comentarios(id_user,texto,calificacion,id_img) VALUES(?,?,?,?)');
