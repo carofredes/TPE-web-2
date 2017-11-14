@@ -7,6 +7,9 @@
 			<li><button id="home">Home</button></li>
 			<li><button id="wallpapers">Wallpapers</button></li>
 			<li><button id="ringtones">Ringtones</button></li>
+			{if $admin}
+			<li><button id="userPanel">User panel</button></li>
+			{/if}
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			{if $userLogged}
