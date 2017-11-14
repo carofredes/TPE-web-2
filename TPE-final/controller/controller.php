@@ -13,10 +13,12 @@ class Controller {
 		session_start();
 		$this->admin = false;
 		$this->userLoggedin = false;
-		if(isset($_SESSION['USER']) && ($_SESSION['USER'] == 'admin')) {
-			$this->admin = true;
-		}
+
 		if(isset($_SESSION['USER'])) {
+			if ($_SESSION['PERMISSIONS'] == 'admin') {
+				$this->admin = true;
+			}
+
 			$this->userLoggedin = $_SESSION['USER'];
 		}
 	}

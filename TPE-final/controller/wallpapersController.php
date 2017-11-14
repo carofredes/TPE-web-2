@@ -23,8 +23,8 @@ class wallpapersController extends Controller{
       $categoria = $_POST['categoria'];
       if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
         $this->model->guardarWallpaper($titulo, $categoria);
-        header('Location: '.HOME);
       }
+      header('Location: '.HOME);
     }else {
       header('Location: '.LOGIN);
     }
@@ -41,21 +41,17 @@ class wallpapersController extends Controller{
 
   public function storeRelated() {
     if($this->admin) {
-      $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
       $nombre = $_POST['nombre'];
       $imagen_relacionada = $_POST['id-imagen-relacionada'];
-
-      if(isset($_POST['nombre']) && !empty($_POST['nombre'])){
+      if( (isset($_FILES['imagenes']['type']) && !empty($_FILES['imagenes']['type'])) && (isset($_POST['nombre']) && !empty($_POST['nombre']))){
+        $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
         if($this->sonJPG($_FILES['imagenes']['type'])) {
           $this->model->guardarWallpaperRelated($nombre, $imagen_relacionada,$rutaTempImagenes);
-          header('Location: '.HOME);
         }
-        else{
-          $this->view->errorCrear("Las imagenes tienen que ser JPG.", $nombre,  $imagen_relacionada);
-        }   
+        header('Location: '.HOME);  
       }
       else{
-        $this->view->errorCrear("El campo nombre es requerido", $nombre,  $imagen_relacionada);
+        header('Location: '.HOME);
       }
     }else {
       header('Location: '.LOGIN);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-11-2017 a las 03:53:09
+-- Tiempo de generación: 14-11-2017 a las 03:07:34
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -60,7 +60,11 @@ CREATE TABLE `comentarios` (
 --
 
 INSERT INTO `comentarios` (`id_comentario`, `id_user`, `texto`, `calificacion`, `id_img`) VALUES
-(1, 1, 'creado desde la db', 5, 1);
+(1, 7, 'creado desde la db', 5, 1),
+(3, 7, 'holis', 2, 1),
+(4, 7, 'puto el que llee', 1, 1),
+(5, 1, '', 1, 1),
+(6, 1, '', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -117,7 +121,8 @@ INSERT INTO `imagenes_relacionadas` (`id_img`, `url`, `id_img_relac`) VALUES
 (2, 'media/img/space-1-sepia.jpg', 11),
 (2, 'media/img/space-1-baw.jpg', 12),
 (3, 'media/img/space-2-sepia.jpg', 13),
-(3, 'media/img/space-2-baw.jpg', 14);
+(3, 'media/img/space-2-baw.jpg', 14),
+(1, 'media/img/sdf0.jpg', 35);
 
 -- --------------------------------------------------------
 
@@ -129,18 +134,18 @@ CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
   `nickName` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `lastname` varchar(50) NOT NULL,
-  `permissions` varchar(255) NOT NULL
+  `permissions` bit(1) NOT NULL DEFAULT b'0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id_user`, `nickName`, `password`, `name`, `lastname`, `permissions`) VALUES
-(1, 'root', '$2y$10$LwWc9oR7O3wG/VFG57.0s.4YfXz56GUlmCecmj66U/a2pQjytn.Ce', 'root', 'root', ''),
-(2, 'admin', '$2y$10$eIg384TcHJ2BTDZg4y37V.EGVIjQFLpilhniTftVFmKj/s4CAzNam', 'admin', 'admin', '');
+INSERT INTO `users` (`id_user`, `nickName`, `password`, `permissions`) VALUES
+(1, 'admin', '$2y$10$eIg384TcHJ2BTDZg4y37V.EGVIjQFLpilhniTftVFmKj/s4CAzNam', b'1'),
+(7, 'carito', '$2y$10$eWjE5B6OEp/DKak8rE9N/.oqhvVmhqmj4Rj8xAARMbh222rEFWQzO', b'0'),
+(8, 'buhonoadmin', '$2y$10$oVsqFyIb3DkZYmxpp0Ze3OlZvj0mhdiJ2PmI6N3TrV6onC9jvO/2q', b'0'),
+(9, 'buhoadmin', '$2y$10$HB0sQgagG4NQGYYnI0ztuuzcW2Mqyw1QDM6zKoGjMl.bPhNnNlUq2', b'0');
 
 --
 -- Índices para tablas volcadas
@@ -188,12 +193,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id_comentario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_comentario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `imagen`
 --
@@ -203,12 +208,12 @@ ALTER TABLE `imagen`
 -- AUTO_INCREMENT de la tabla `imagenes_relacionadas`
 --
 ALTER TABLE `imagenes_relacionadas`
-  MODIFY `id_img_relac` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_img_relac` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- Restricciones para tablas volcadas
 --

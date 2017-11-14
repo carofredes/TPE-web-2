@@ -25,10 +25,7 @@ class LoginController extends Controller {
         password_verify($password, $user[0]['password']);
 
         if((!empty($user)) && password_verify($password, $user[0]['password'])) {
-            session_start();
-            $_SESSION['USER'] = $userName;
-            $_SESSION['LAST_ACTIVITY'] = time();
-            header('Location: '.HOME);
+          $this->startSession($user);
         }
         else{
             $this->view->mostrarLogin('Usuario o Password incorrectos');
@@ -45,14 +42,20 @@ class LoginController extends Controller {
     $hashpassword = password_hash($password,PASSWORD_DEFAULT);
     if(!empty($userName) && !empty($hashpassword)){
       $user = $this->model->createUser($userName, $hashpassword);
-      session_start();
-      $_SESSION['USER'] = $userName;
-      $_SESSION['LAST_ACTIVITY'] = time();
-      header('Location: '.HOME);
-      }
+      $userLogged = $this->model->getUser($userName);
+      $this->startSession($userLogged);
+    }
     else{
         $this->view->mostrarLogin('Completa todos los datos');
     }
+  }
+
+  private function startSession($user){
+    session_start();
+    $_SESSION['USER'] = $user[0]['nickName'];
+    $_SESSION['PERMISSIONS'] = $user[0]['permissions'];
+    $_SESSION['LAST_ACTIVITY'] = time();
+    header('Location: '.HOME);
   }
 
   public function destroy() {
