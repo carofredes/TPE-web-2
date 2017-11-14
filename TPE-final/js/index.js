@@ -16,14 +16,30 @@ function cargarComentarios(id) {
 			$('#listaComentarios').append('<li>Imposible cargar la lista de tareas</li>');
 		});
 }
+function cargarUltimosComentarios(id,fecha) {
+	$.ajax({
+			method: "GET",
+			url: "api/comentario/"+id+"/"+fecha,
+		})
+		.done(function(comentarios) {
+			let rendered = Mustache.render(templateComentarios, comentarios);
+			$('#listaComentarios').append(rendered);
+		})
+		.fail(function() {
+			$('#listaComentarios').append('<li>Imposible cargar la lista de tareas</li>');
+		});
+}
 
-function crearComentario() {
+function crearComentario(fecha) {
+	
 	let comentario = {
 		"usuario": "1",
 		"texto": $('#ComentarioText').val(),
 		"calificacion": $('#select').val(),
-		"id_img": $('#id-imagen-details').val()
+		"id_img": $('#id-imagen-details').val(),
+		"fecha": fecha
 	};
+	console.log(comentario);
 	$.ajax({
 			method: "POST",
 			url: "api/comentario",
@@ -113,6 +129,8 @@ function mostrarDetalleImagenes(id){
 		method: "GET",
 	})
 	.done(function(result) {
+		var date = new Date();
+		let fechaActual = date.getFullYear() + "-" +  date.getMonth() + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 		$("#container-results").html(result);
 		
 		$('#refresh').click(function(event) {
@@ -122,18 +140,17 @@ function mostrarDetalleImagenes(id){
 
 		$('#btnCrearComentario').click(function(event) {
 			event.preventDefault();
-			crearComentario();
+			crearComentario(fechaActual);
 		});
 
 		$('body').on('click', 'a.js-borrar', function(event) {
 			event.preventDefault();
 			let id_comentario = $(this).data('idcomentario');
-			console.log(id_comentario);
 			borrarComentario(id_comentario);
 		});
-		cargarComentarios(id);
+		cargarUltimosComentarios(id,fechaActual);
 		setInterval(function(){
-	    	cargarComentarios(id);
+	    	cargarUltimosComentarios(id,fechaActual);
 		}, 2000);
 	})
 }

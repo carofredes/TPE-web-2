@@ -26,6 +26,21 @@ class comentarioApiController extends Api
         return $this->json_response(false, 404);
   }
 
+  public function getUltimosComentarios($url_params = [])
+  {
+      $id_comentario = $url_params[":id"];
+      $fecha = $url_params[":fecha"];
+      $comentario = $this->model->getUltimosComentarios($id_comentario,$id_fecha);
+      $response = new stdClass();
+      $response->comentarios = $comentario;
+      $response->status = 200;
+      if($response)
+        return $this->json_response($response, 200);
+      else
+        return $this->json_response(false, 404);
+  }
+
+
   public function deleteComentarios($url_params = [])
   {
       $id_comentario = $url_params[":id"];
@@ -45,7 +60,8 @@ class comentarioApiController extends Api
     $texto = $body->texto;
     $calificacion = $body->calificacion;
     $id_img = $body->id_img;
-    $comentario = $this->model->guardarComentario($usuario, $texto, $calificacion,$id_img);
+    $fecha = $body->fecha;
+    $comentario = $this->model->guardarComentario($usuario, $texto, $calificacion,$id_img,$fecha);
     $response = new stdClass();
     $response->comentarios = [$comentario];
     $response->status = 200;

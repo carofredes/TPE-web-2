@@ -11,6 +11,11 @@ class comentarioModel extends model
     $sentencia->execute([$id_comentario]);
     return $sentencia->fetch(PDO::FETCH_ASSOC);
   }
+  function getUltimosComentarios($id_img, $fecha){
+    $sentencia = $this->db->prepare( "select * from comentarios where id_img = ? fecha = ?");
+    $sentencia->execute([$id_img,$fecha]);
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
     
   function getComentarioOfImg($id_img){
     $sentencia = $this->db->prepare( "select * from comentarios where id_img = ?");
@@ -18,9 +23,9 @@ class comentarioModel extends model
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function guardarComentario($usuario, $texto, $calificacion,$id_img){
-    $sentencia = $this->db->prepare('INSERT INTO comentarios(id_user,texto,calificacion,id_img) VALUES(?,?,?,?)');
-    $sentencia->execute([$usuario,$texto,$calificacion,$id_img]);
+  function guardarComentario($usuario, $texto, $calificacion,$id_img,$fecha){
+    $sentencia = $this->db->prepare('INSERT INTO comentarios(id_user,texto,calificacion,id_img,fecha) VALUES(?,?,?,?,?)');
+    $sentencia->execute([$usuario,$texto,$calificacion,$id_img,$fecha]);
     $id = $this->db->lastInsertId();
     return $this->getComentario($id);
   }
