@@ -26,8 +26,7 @@ class configApp {
         'logout'                      => 'usersController#destroy',
         'userPanel'                   => 'usersController#showUsersPanel',
         'borrarUsuario'               => 'usersController#delete',
-        'borrarAdmin'                 => 'usersController#removePermission',
-        'agregarAdmin'                => 'usersController#gruntPermission',
+        'cambiarPermiso'              => 'usersController#changePermission',
     ];
 }
 

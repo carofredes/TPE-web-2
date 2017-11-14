@@ -13,19 +13,16 @@
 			<tr>
 				<td>
 					{$user['nickName']}
-					<a href="borrarUsuario/{$id_user}"><span class="glyphicon glyphicon-trash"></span></a>
+					<a href="borrarUsuario/{$user['id_user']}"><span class="glyphicon glyphicon-trash"></span></a>
 				</td>
-				{if $user['permissions'] == 1}
 				<td>
+				{if $user['permissions'] == 1}				
 					admin
-					<a href="borrarAdmin/{$id_user}"><span class="glyphicon glyphicon-edit"></span>Remove permission</a>
-				</td>
 				{else}
-				<td>
                 	normal user
-                    <a href="agregarAdmin/{$id_user}"><span class="glyphicon glyphicon-edit"></span>Add admin permission</a>
+                {/if}
+                    <a href="cambiarPermiso/{$user['id_user']}"><span class="glyphicon glyphicon-edit"></span>Change permission</a>
 				</td>
-				{/if}
 			</tr>
 			{/foreach}
 		</tbody>

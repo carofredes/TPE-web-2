@@ -69,7 +69,7 @@ class UsersController extends Controller {
         if ($this->admin) {
             if (isset($params[0]) && !empty($params[0])) {
                 $id_user = $params[0];
-                $this->model->borrarUser($id_img);
+                $this->model->borrarUser($id_user);
             }
             header('Location: ' . HOME);
         } else {
@@ -77,23 +77,17 @@ class UsersController extends Controller {
         }
     }
 
-    public function removePermission($params) {
+    public function changePermission($params) {
         if ($this->admin) {
             if (isset($params[0]) && !empty($params[0])) {
                 $id_user = $params[0];
-                $this->model->borrarWallpaper($id_img);
-            }
-            header('Location: ' . HOME);
-        } else {
-            header('Location: ' . LOGIN);
-        }
-    }
-
-    public function gruntPermission($params) {
-        if ($this->admin) {
-            if (isset($params[0]) && !empty($params[0])) {
-                $id_user = $params[0];
-                $this->model->borrarWallpaper($id_img);
+                $user = $this->model->getUserById($id_user);
+                if ($user[0]['permissions'] == 0) {
+                    $this->model->cambiarPermisoAdmin($id_user,1);
+                }
+                else {
+                    $this->model->cambiarPermisoAdmin($id_user,0);
+                }                
             }
             header('Location: ' . HOME);
         } else {

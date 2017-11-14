@@ -12,7 +12,7 @@ class Controller {
     public function __construct() {
         session_start();
         $this->admin        = false;
-        $this->userLoggedin = false;
+        $this->userLoggedin = '';
 
         if (isset($_SESSION['USER'])) {
             if ($_SESSION['PERMISSIONS'] == 1) {

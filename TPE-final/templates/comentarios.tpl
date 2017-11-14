@@ -5,6 +5,7 @@
 </div>
 <ul id="listaComentarios" class="list-group col-md-6 col-md-offset-3">
 </ul>
+{if $userLogged}
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
 		<h3>Add Comment</h3>
@@ -39,3 +40,4 @@
 		<button id="refresh" type="submit" class="btn btn-default">refresh</button>
 	</div>
 </div>
+{/if}
