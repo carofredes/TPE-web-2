@@ -1,0 +1,6 @@
+{{#captcha}}
+<div class="captcha-item">
+	<h4> El captcha es : </h4> {{captcha}}
+	<input type="text" id="id-captcha-input">
+</div>
+{{/captcha}}

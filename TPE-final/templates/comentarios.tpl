@@ -32,7 +32,7 @@
 					</select>
 				</div>
 			</div>
-			<div class="g-recaptcha" data-sitekey="6LckYTgUAAAAAKTuAIRmj_wdchbFJkm1WQ2_k4C6"></div>
+			<div id="id-captcha"></div>
 			<button id="btnCrearComentario" type="submit" class="btn btn-success btn-circle"><span class="glyphicon glyphicon-send"></span>Crear</button>
 		</form>
 		
