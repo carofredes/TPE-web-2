@@ -22,7 +22,7 @@ class comentarioApiController extends securedApiController {
     }
 
     public function getComentarioOfImg($url_params = []) {
-        $this->genCaptcha();
+        //$this->genCaptcha();
         //global $captchaVista;
         $id_comentario         = $url_params[":id"];
         $comentario            = $this->model->getComentarioOfImg($id_comentario);
