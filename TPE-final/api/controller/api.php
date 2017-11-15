@@ -7,7 +7,7 @@ abstract class Api {
         $this->raw_data = file_get_contents("php://input");
     }
 
-    protected function jsonResponse($data, $status) {
+    protected function json_response($data, $status) {
         header("Content-Type: application/json");
         header("HTTP/1.1 " . $status . " " . $this->_requestStatus($status));
         return json_encode($data);

@@ -34,7 +34,6 @@ class comentarioApiController extends Api {
         } else {
             return $this->json_response(false, 404);
         }
-
     }
 
     public function createComentarios($url_params = []) {
