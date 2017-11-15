@@ -15,7 +15,8 @@
                 {foreach from=$wallpapers item=wallpaper}
                 <div class="wallpaper-img-container">
                     {assign var="urlImg" value="media/img/`$wallpaper['titulo']`.jpg"} {assign var="id_img" value="`$wallpaper['id_img']`"}
-                    <a onclick="mostrarDetalleImagenes({$id_img})"><img class="img" src={$urlImg} alt="{$wallpaper['titulo']}" id="{$id_img}"/></a> {if $admin}
+                    <a onclick="mostrarDetalleImagenes({$id_img})"><img class="img" src={$urlImg} alt="{$wallpaper['titulo']}" id="{$id_img}"/></a> 
+                    {if $admin}
                     <a href="borrarWallpaper/{$id_img}"><span class="glyphicon glyphicon-trash"></span></a>
                     <a href="#"><span class="glyphicon glyphicon-edit"></span></a>
                     <form action="editarWallpaper" method="post">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-11-2017 a las 03:07:34
+-- Tiempo de generación: 14-11-2017 a las 05:42:18
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -61,10 +61,7 @@ CREATE TABLE `comentarios` (
 
 INSERT INTO `comentarios` (`id_comentario`, `id_user`, `texto`, `calificacion`, `id_img`) VALUES
 (1, 7, 'creado desde la db', 5, 1),
-(3, 7, 'holis', 2, 1),
-(4, 7, 'puto el que llee', 1, 1),
-(5, 1, '', 1, 1),
-(6, 1, '', 1, 1);
+(3, 7, 'holis', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -134,7 +131,7 @@ CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
   `nickName` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `permissions` bit(1) NOT NULL DEFAULT b'0'
+  `permissions` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -142,10 +139,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `nickName`, `password`, `permissions`) VALUES
-(1, 'admin', '$2y$10$eIg384TcHJ2BTDZg4y37V.EGVIjQFLpilhniTftVFmKj/s4CAzNam', b'1'),
-(7, 'carito', '$2y$10$eWjE5B6OEp/DKak8rE9N/.oqhvVmhqmj4Rj8xAARMbh222rEFWQzO', b'0'),
-(8, 'buhonoadmin', '$2y$10$oVsqFyIb3DkZYmxpp0Ze3OlZvj0mhdiJ2PmI6N3TrV6onC9jvO/2q', b'0'),
-(9, 'buhoadmin', '$2y$10$HB0sQgagG4NQGYYnI0ztuuzcW2Mqyw1QDM6zKoGjMl.bPhNnNlUq2', b'0');
+(1, 'admin', '$2y$10$eIg384TcHJ2BTDZg4y37V.EGVIjQFLpilhniTftVFmKj/s4CAzNam', 1),
+(8, 'buhonoadmin', '$2y$10$oVsqFyIb3DkZYmxpp0Ze3OlZvj0mhdiJ2PmI6N3TrV6onC9jvO/2q', 0),
+(11, 'usuario1', '$2y$10$sqxx6irdepaZJNh1PGHD7O7W3e93Buj.a63rgpdYNdfAgfdL5Yl.u', 0),
+(12, 'usuario2', '$2y$10$XAl3qz7zFW82hF1gr4/dWOy0MOslR4OXT0WH.4LckhoiErmSM.ILS', 1);
 
 --
 -- Índices para tablas volcadas
@@ -198,7 +195,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id_comentario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_comentario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT de la tabla `imagen`
 --
@@ -213,16 +210,10 @@ ALTER TABLE `imagenes_relacionadas`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `comentarios`
---
-ALTER TABLE `comentarios`
-  ADD CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
 
 --
 -- Filtros para la tabla `imagen`

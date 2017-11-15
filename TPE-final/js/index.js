@@ -57,54 +57,61 @@ $(document).ready(function() {
 	$("#home").on("click", function() {
 		$.ajax({
 			url: "./home",
-			method: "GET",
-			success: showHome
+			method: "GET"
 		})
+		.done(function(result) {
+			$("#container-results").html(result);
+		});
 	});
+
 	$("#wallpapers").on("click", function() {
 		$.ajax({
 			url: "./wallpapers",
-			method: "GET",
-			success: showWallpapers
+			method: "GET"
 		})
+		.done(function(result) {
+			$("#container-results").html(result);
+		});
 	});
+
 	$("#ringtones").on("click", function() {
 		$.ajax({
 			url: "./ringtones",
-			method: "GET",
-			success: showRingtones
+			method: "GET"
 		})
+		.done(function(result) {
+			$("#container-results").html(result);
+		});
 	});
+
+	$("#userPanel").on("click", function() {
+		$.ajax({
+			url: "./userPanel",
+			method: "GET"
+		})
+		.done(function(result) {
+			$("#container-results").html(result);
+		});
+	});	
+
 	$.ajax({
 		url: "./home",
-		method: "GET",
-		success: showHome
+		method: "GET"
 	})
+	.done(function(result) {
+		$("#container-results").html(result);
+	});
 });
 
 function actualizarContenido(id) {
 	$.ajax({
 		url: "./categorieResults/" + id,
 		method: "GET",
-		success: showSelectedCategorieResults
 	})
-}
-
-function showSelectedCategorieResults(result) {
-	$(".all-wallpapers-container").addClass("hide");
-	$("#categories-result-partial").html(result);
-}
-
-function showHome(result) {
-	$("#container-results").html(result);
-}
-
-function showWallpapers(result) {
-	$("#container-results").html(result);
-}
-
-function showRingtones(result) {
-	$("#container-results").html(result);
+	.done(function(result) {
+		$(".all-wallpapers-container").addClass("hide");
+		$("#categories-result-partial").html(result);
+	});
 }
 
 function mostrarDetalleImagenes(id){

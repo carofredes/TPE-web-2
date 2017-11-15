@@ -1,16 +1,16 @@
 <?php
-	include_once 'libs/Smarty.class.php';
+include_once 'libs/Smarty.class.php';
 
-	class view {
-		protected $smarty;
-		protected $admin;
-		protected $userLogged;
+class view {
+    protected $smarty;
+    protected $admin;
+    protected $userLogged;
 
-		function __construct($admin, $userLogged) {
-			$this->smarty = new Smarty();
-			$this->smarty->assign('tituloSitio', 'Not only cats');
-			$this->smarty->assign('admin', $admin);
-			$this->smarty->assign('userLogged', $userLogged);
-		}
-	}
+    public function __construct($admin, $userLogged) {
+        $this->smarty = new Smarty();
+        $this->smarty->assign('tituloSitio', 'Not only cats');
+        $this->smarty->assign('admin', $admin);
+        $this->smarty->assign('userLogged', $userLogged);
+    }
+}
 ?>

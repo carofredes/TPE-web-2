@@ -14,14 +14,3 @@
 		</div>
 	</div>
 </div>
-
-{if $admin}
-<div>
-	<ul>
-		{foreach from=$relatedImgs item=img name=images}
-
-		{/foreach}
-	</ul>
-</div>
-
-{/if}
