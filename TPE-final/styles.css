@@ -112,6 +112,11 @@ h1 {
 .list-group-item {
     border: none;
 }
+
+.fecha-comment {
+    float: right;
+    font-size: 11px;
+}
 /* LOGIN */
 .login-page {
     position: fixed; 

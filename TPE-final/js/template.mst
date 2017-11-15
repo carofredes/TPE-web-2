@@ -9,7 +9,7 @@
 		<div class="col-sm-5">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<strong>User {{id_user}}</strong> <span class="text-muted">calificacion: {{calificacion}}</span>
+					<strong>User {{id_user}}</strong> <span class="text-muted">calificacion: {{calificacion}}</span><span class="fecha-comment"> commented on {{fecha}}</span>
 				</div>
 				<div class="panel-body">
 					{{texto}}
@@ -17,6 +17,8 @@
 			</div>
 		</div>
 	</div>
+	{{#isAdmin}}
 	<a class="js-borrar" data-idcomentario="{{id_comentario}}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+	{{/isAdmin}}
 </div>
 {{/comentarios}}

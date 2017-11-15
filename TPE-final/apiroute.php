@@ -15,6 +15,8 @@ $router->AddRoute("comentario", "POST", "comentarioApiController", "createComent
 
 $router->AddRoute("comentario/:id", "DELETE", "comentarioApiController", "deleteComentario");
 
+$router->AddRoute("comentario/:id/:fecha", "GET", "comentarioApiController", "getUltimosComentarios");
+
 $route = $_GET['resource'];
 $array = $router->Route($route);
 

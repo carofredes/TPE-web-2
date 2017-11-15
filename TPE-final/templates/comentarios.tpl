@@ -5,6 +5,8 @@
 </div>
 <ul id="listaComentarios" class="list-group col-md-6 col-md-offset-3">
 </ul>
+<ul id="ultimoslistaComentarios" class="list-group col-md-6 col-md-offset-3">
+</ul>
 {if $userLogged}
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">

@@ -3,53 +3,6 @@ let templateComentarios;
 $.ajax({
     url: 'js/template.mst'
 }).done(template => templateComentarios = template);
-
-function cargarComentarios(id) {
-    $.ajax({
-        method: "GET",
-        url: "api/comentario/" + id,
-    }).done(function(comentarios) {
-        $('.list-group-item').remove();
-        console.log(comentarios);
-        let rendered = Mustache.render(templateComentarios, comentarios);
-        $('#listaComentarios').append(rendered);
-    }).fail(function() {
-        $('#listaComentarios').append('<li>Imposible cargar la lista de tareas</li>');
-    });
-}
-
-function crearComentario() {
-    let comentario = {
-        "usuario": "1",
-        "texto": $('#ComentarioText').val(),
-        "calificacion": $('#select').val(),
-        "id_img": $('#id-imagen-details').val()
-    };
-    $.ajax({
-        method: "POST",
-        url: "api/comentario",
-        data: JSON.stringify(comentario)
-    }).done(function(data) {
-        let rendered = Mustache.render(templateComentarios, data);
-        console.log(data);
-        $('#listaComentarios').append(rendered);
-    }).fail(function(data) {
-        console.log(data);
-        alert('Imposible crear el comentario');
-    });
-}
-
-function borrarComentario(id_comentario) {
-    $.ajax({
-        method: "DELETE",
-        url: "api/comentario/" + id_comentario
-    }).done(function() {
-        $('#id_comentario' + id_comentario).remove();
-         alert('Llego borrar el comentario');
-    }).fail(function() {
-        alert('Imposible borrar el comentario');
-    });
-}
 $(document).ready(function() {
     $("#home").on("click", function() {
         $.ajax({
@@ -121,9 +74,85 @@ function mostrarDetalleImagenes(id) {
             borrarComentario(id_comentario);
         });
         cargarComentarios(id);
-        /*
-        		setInterval(function(){
-        	    	cargarComentarios(id);
-        		}, 2000);*/
     })
+}
+
+function cargarComentarios(id) {
+    $.ajax({
+        method: "GET",
+        url: "api/comentario/" + id,
+    }).done(function(comentarios) {
+        $('.list-group-item').remove();
+        for (let coment of comentarios.comentarios){
+    		var date1 = new Date(null);
+			date1.setTime(coment.fecha*1000);
+			let fechaParseada = date1.toLocaleString();
+    		coment.fecha = fechaParseada;    	
+        }
+        let rendered = Mustache.render(templateComentarios, comentarios);
+        $('#listaComentarios').append(rendered);
+
+        let date = Math.floor(new Date().getTime() / 1000)
+        setInterval(function() {
+            let fechaActualizada = date + 2;
+            date = fechaActualizada;
+            cargarUltimosComentarios(id, fechaActualizada, comentarios);
+        }, 2000);
+    }).fail(function() {
+        $('#listaComentarios').append('<li>Imposible cargar la lista de tareas</li>');
+    });
+}
+
+function cargarUltimosComentarios(id, fecha, comentariosViejos) {
+    $.ajax({
+        method: "GET",
+        url: "api/comentario/" + id + "/" + fecha,
+    }).done(function(comentarios) {
+        if (comentarios) {
+            let rendered = Mustache.render(templateComentarios, comentarios);
+            $('#ultimoslistaComentarios').append(rendered);
+        }
+    }).fail(function() {
+        $('#listaComentarios').append('<li>Imposible cargar la lista de tareas</li>');
+    });
+}
+
+function crearComentario() {
+    let date = Math.floor(new Date().getTime() / 1000)
+    let comentario = {
+        "usuario": "1",
+        "texto": $('#ComentarioText').val(),
+        "calificacion": $('#select').val(),
+        "id_img": $('#id-imagen-details').val(),
+        "fecha": date
+    };
+    $.ajax({
+        method: "POST",
+        url: "api/comentario",
+        data: JSON.stringify(comentario)
+    }).done(function(data) {    	
+    	var date1 = new Date(null);
+		date1.setTime(data.comentarios[0].fecha*1000);
+		let fechaParseada = date1.toLocaleString();
+		data.comentarios[0].fecha = fechaParseada;
+		console.log(data.comentarios[0].fecha);
+        let rendered = Mustache.render(templateComentarios, data);
+        //console.log(data);
+        $('#listaComentarios').append(rendered);
+    }).fail(function(data) {
+        //console.log(data);
+        alert('Imposible crear el comentario');
+    });
+}
+
+function borrarComentario(id_comentario) {
+    $.ajax({
+        method: "DELETE",
+        url: "api/comentario/" + id_comentario
+    }).done(function() {
+        $('#id_comentario' + id_comentario).remove();
+        alert('Llego borrar el comentario');
+    }).fail(function() {
+        alert('Imposible borrar el comentario');
+    });
 }
