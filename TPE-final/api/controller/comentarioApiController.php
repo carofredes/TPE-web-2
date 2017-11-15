@@ -1,9 +1,9 @@
 <?php
 
 require_once 'model/comentarioModel.php';
-require_once 'api.php';
+require_once 'securedApiController.php';
 
-class comentarioApiController extends Api {
+class comentarioApiController extends securedApiController {
     protected $model;
 
     public function __construct() {
@@ -17,23 +17,24 @@ class comentarioApiController extends Api {
         $response              = new stdClass();
         $response->comentarios = $comentario;
         $response->status      = 200;
+        $response->isAdmin     = $this->isAdmin();
         if ($response) {
             return $this->json_response($response, 200);
         } else {
             return $this->json_response(false, 404);
         }
-
     }
 
-    public function deleteComentarios($url_params = []) {
-        $id_comentario = $url_params[":id"];
-        $comentario    = $this->model->getComentario($id_comentario);
-        if ($comentario) {
-            $this->model->borrarComentario($id_comentario);
-            return $this->json_response("Borrado exitoso.", 200);
-        } else {
-            return $this->json_response(false, 404);
+    public function deleteComentario($url_params = []) {
+        if ($this->isAdmin()) {
+            $id_comentario = $url_params[":id"];
+            $comentario    = $this->model->getComentario($id_comentario);
+            if ($comentario) {
+                $this->model->borrarComentario($id_comentario);
+                return $this->json_response("Borrado exitoso.", 200);
+            }
         }
+        return $this->json_response(false, 404);
     }
 
     public function createComentarios($url_params = []) {
