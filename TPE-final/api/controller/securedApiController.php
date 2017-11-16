@@ -11,6 +11,7 @@ class securedApiController extends Api {
         $this->isAdmin = false;
         $this->isLogged = false;
         if (isset($_SESSION['USER'])) {
+            $this->isLogged = true;
             if ($_SESSION['PERMISSIONS'] == 1) {
                 $this->isAdmin = true;
             }
