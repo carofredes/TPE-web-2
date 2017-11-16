@@ -38,17 +38,21 @@ class comentarioApiController extends securedApiController {
     }
 
     public function createComentarios($url_params = []) {
-        $body                  = json_decode($this->raw_data);
-        $usuario               = $body->usuario;
-        $texto                 = $body->texto;
-        $calificacion          = $body->calificacion;
-        $id_img                = $body->id_img;
-        $fecha                 = $body->fecha;
-        $comentario            = $this->model->guardarComentario($usuario, $texto, $calificacion, $id_img, $fecha);
-        $response              = new stdClass();
-        $response->comentarios = [$comentario];
-        $response->status      = 200;
-        return $this->json_response($response, 200);
+        if ($this->isLogged()){
+            $body                  = json_decode($this->raw_data);
+            $usuario               = $body->usuario;
+            $texto                 = $body->texto;
+            $calificacion          = $body->calificacion;
+            $id_img                = $body->id_img;
+            $fecha                 = $body->fecha;
+            $comentario            = $this->model->guardarComentario($usuario, $texto, $calificacion, $id_img, $fecha);
+            $response              = new stdClass();
+            $response->comentarios = [$comentario];
+            $response->status      = 200;
+            return $this->json_response($response, 200);
+        }else{
+            return $this->json_response($response , 404);
+        }      
     }
 
     public function getUltimosComentarios($url_params = []) {

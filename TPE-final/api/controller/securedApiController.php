@@ -3,11 +3,13 @@ require_once 'api.php';
 
 class securedApiController extends Api {
     private $isAdmin;
+    private $isLogged;
 
     public function __construct() {
         parent::__construct();
         session_start();
         $this->isAdmin = false;
+        $this->isLogged = false;
         if (isset($_SESSION['USER'])) {
             if ($_SESSION['PERMISSIONS'] == 1) {
                 $this->isAdmin = true;
@@ -17,5 +19,8 @@ class securedApiController extends Api {
 
     public function isAdmin() {
         return $this->isAdmin;
+    }
+    public function isLogged() {
+        return $this->isLogged;
     }
 }
